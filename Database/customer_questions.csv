@@ -1,0 +1,501 @@
+question_id,category,question
+Q001,Price,What is the price of my product?
+Q002,Price,How much does my product cost?
+Q003,Price,What is the price of the item I purchased?
+Q004,Price,How much did I pay for my product?
+Q005,Price,Can you tell me the price of my item?
+Q006,Price,How much do the wireless headphones cost?
+Q007,Price,What is the price of the Bluetooth speaker?
+Q008,Price,How much does the smart watch cost?
+Q009,Price,What is the price of the mechanical keyboard?
+Q010,Price,How much does the laptop cost?
+Q011,Price,What is the price of the tablet?
+Q012,Price,How much does the external SSD cost?
+Q013,Price,What is the price of the power bank?
+Q014,Price,How much do the sports shoes cost?
+Q015,Price,What is the price of the electric trimmer?
+Q016,Availability,Is my product available?
+Q017,Availability,Is my product currently in stock?
+Q018,Availability,Do you have the product I want?
+Q019,Availability,Is the item I purchased still available?
+Q020,Availability,Can I buy this product right now?
+Q021,Availability,Are the wireless headphones in stock?
+Q022,Availability,Is the Bluetooth speaker available?
+Q023,Availability,Do you have the smart watch in stock?
+Q024,Availability,Is the mechanical keyboard available?
+Q025,Availability,Is the laptop currently in stock?
+Q026,Availability,Are the Bluetooth earbuds available?
+Q027,Availability,Do you have the external SSD in stock?
+Q028,Availability,Is the power bank available right now?
+Q029,Availability,Are the sports shoes in stock?
+Q030,Availability,Is the electric trimmer currently available?
+Q031,Product Information,Can you tell me about my product?
+Q032,Product Information,What are the details of the product I purchased?
+Q033,Product Information,Can you give me more information about my item?
+Q034,Product Information,What features does my product have?
+Q035,Product Information,Tell me about the wireless headphones.
+Q036,Product Information,What can you tell me about the smart watch?
+Q037,Product Information,Can you give me details about the mechanical keyboard?
+Q038,Product Information,What are the details of the laptop?
+Q039,Product Information,Tell me more about the air fryer.
+Q040,Product Information,Can you give me information about the electric trimmer?
+Q041,Delivery,When will my product arrive?
+Q042,Delivery,When will my order arrive?
+Q043,Delivery,How long will my delivery take?
+Q044,Delivery,When can I expect my package?
+Q045,Delivery,When will the product I purchased be delivered?
+Q046,Delivery,Has my product been shipped yet?
+Q047,Delivery,Is my package arriving today?
+Q048,Delivery,When should I expect my laptop to arrive?
+Q049,Delivery,How long will it take for my headphones to arrive?
+Q050,Delivery,Can you tell me the expected delivery date?
+Q051,Order Status,What is the status of my order?
+Q052,Order Status,Can you check my order status?
+Q053,Order Status,Has my order been confirmed?
+Q054,Order Status,Has my package been dispatched?
+Q055,Order Status,Is my order still being processed?
+Q056,Order Status,Has my order been shipped?
+Q057,Order Status,Why is my order still processing?
+Q058,Order Status,Can you tell me what is happening with my order?
+Q059,Order Status,Is my package on the way?
+Q060,Order Status,Can you track my order?
+Q061,Refund,Can I get a refund for my order?
+Q062,Refund,Is my product eligible for a refund?
+Q063,Refund,How do I request a refund?
+Q064,Refund,Can you refund the money for my purchase?
+Q065,Refund,When will my refund be processed?
+Q066,Refund,Has my refund been issued?
+Q067,Refund,I want my money back for this product.
+Q068,Refund,Why have I not received my refund yet?
+Q069,Refund,Can I get a full refund for my order?
+Q070,Refund,What is the process to get a refund?
+Q071,Return,Can I return the product I received?
+Q072,Return,What is the return procedure for my order?
+Q073,Return,How many days do I have to return my item?
+Q074,Return,I want to return the product I purchased.
+Q075,Return,Can you help me start a return?
+Q076,Return,Is return pickup available for my address?
+Q077,Return,Can I return the wireless headphones?
+Q078,Return,Can I return the laptop if it is opened?
+Q079,Return,What condition must the product be in for a return?
+Q080,Return,How long does it take for a return pickup?
+Q081,Cancellation,Can I cancel my order?
+Q082,Cancellation,I want to cancel the order I just placed.
+Q083,Cancellation,How do I cancel my product delivery?
+Q084,Cancellation,Can you stop my order from shipping?
+Q085,Cancellation,Is it too late to cancel my purchase?
+Q086,Cancellation,Why was my cancellation request rejected?
+Q087,Cancellation,Can I cancel only one item from my order?
+Q088,Cancellation,Will I get charged if I cancel my order now?
+Q089,Cancellation,Can you confirm that my order has been cancelled?
+Q090,Cancellation,How quickly is money refunded after cancellation?
+Q091,Policies,What is your return policy?
+Q092,Policies,What is your refund policy?
+Q093,Policies,What is the warranty policy for electronics?
+Q094,Policies,Do you accept returns for opened products?
+Q095,Policies,What is the cancellation policy before shipment?
+Q096,Policies,How many days do I have to request a refund?
+Q097,Policies,What happens if a product arrives damaged?
+Q098,Policies,What are the terms for replacement?
+Q099,Policies,What is the shipping policy for standard orders?
+Q100,Policies,Are delivery charges refundable?
+Q101,Problems,My product arrived damaged. What should I do?
+Q102,Problems,I received the wrong item in my package.
+Q103,Problems,My product has stopped working properly.
+Q104,Problems,Part of my order is missing.
+Q105,Problems,The package box was crushed upon delivery.
+Q106,Problems,My delivery is delayed by several days.
+Q107,Problems,I was charged twice for the same order.
+Q108,Problems,The tracking link for my shipment is not updating.
+Q109,Problems,The delivered item does not match the website description.
+Q110,Problems,My parcel was marked delivered but I never received it.
+Q111,Price,What is the cost of the USB-C charger?
+Q112,Price,How much is the gaming mouse pad?
+Q113,Price,What is the price of the smartphone?
+Q114,Price,Tell me the cost of the 4K monitor.
+Q115,Price,What is the current rate of the Wi-Fi router?
+Q116,Price,How much does the backpack cost?
+Q117,Price,What is the price tag on the sports shoes?
+Q118,Price,Can you give me the price of the air fryer?
+Q119,Price,How much do the Bluetooth earbuds sell for?
+Q120,Price,What is the price of the desk lamp?
+Q121,Availability,Are there any gaming mouse pads left in stock?
+Q122,Availability,Is the 54999 laptop available for purchase?
+Q123,Availability,Do you have the USB flash drive in stock?
+Q124,Availability,How many units of the analog watch are in inventory?
+Q125,Availability,Is the electric kettle available for shipping?
+Q126,Availability,Are the casual jeans in stock in all sizes?
+Q127,Availability,Can I place an order for the mixer grinder right now?
+Q128,Availability,Is the yoga mat currently in stock?
+Q129,Availability,Are there any smart LED bulbs available?
+Q130,Availability,Do you have sufficient quantity of the office chair?
+Q131,Product Information,What are the specifications of the laptop?
+Q132,Product Information,Does the wireless mouse come with batteries included?
+Q133,Product Information,What material is used in the travel bag?
+Q134,Product Information,What is the battery capacity of the power bank?
+Q135,Product Information,Is the smart watch waterproof?
+Q136,Product Information,Does the webcam support 1080p full HD?
+Q137,Product Information,What is the wattage of the electric kettle?
+Q138,Product Information,Are the running shoes suitable for marathon training?
+Q139,Product Information,What are the dimensions of the study table?
+Q140,Product Information,What type of switches are used in the mechanical keyboard?
+Q141,Delivery,Can you give me the delivery schedule for order O001?
+Q142,Delivery,When is order O005 scheduled to arrive?
+Q143,Delivery,Has my package for order O010 left the warehouse?
+Q144,Delivery,What is the estimated arrival time for order O015?
+Q145,Delivery,Will order O020 be delivered before the weekend?
+Q146,Delivery,Can I change the delivery address for order O025?
+Q147,Delivery,Why has the delivery date for order O028 changed?
+Q148,Delivery,Is express delivery available for my recent purchase?
+Q149,Delivery,Who is the courier partner delivering order O008?
+Q150,Delivery,Can the delivery agent call me before arriving?
+Q151,Order Status,What is the current progress on order O002?
+Q152,Order Status,Can you check if order O006 has been shipped?
+Q153,Order Status,Is order O011 still in packing stage?
+Q154,Order Status,Has the seller dispatched order O016?
+Q155,Order Status,Why does order O021 show pending status?
+Q156,Order Status,Please provide the tracking summary for order O026?
+Q157,Order Status,Is order O030 confirmed and ready for courier pickup?
+Q158,Order Status,Can I track order O004 without logging in?
+Q159,Order Status,Why has my order status not changed in 48 hours?
+Q160,Order Status,Show me the timestamped log for order O018.
+Q161,Refund,I returned order O003. When will my refund reach my bank?
+Q162,Refund,Can I receive a refund for order O007 via original payment method?
+Q163,Refund,Why is the refund amount for order O012 lower than total price?
+Q164,Refund,Has the refund for cancelled order O017 been initiated?
+Q165,Refund,Can I choose store credit instead of a bank refund?
+Q166,Refund,How many business days does a credit card refund take?
+Q167,Refund,My return was approved. Where is my refund receipt?
+Q168,Refund,Is shipping charge deducted from the refund amount?
+Q169,Refund,Can you re-issue my failed refund transaction?
+Q170,Refund,Who should I contact if my refund is not credited within 7 days?
+Q171,Return,How do I package the item for return pickup?
+Q172,Return,Do I need the original invoice to return a product?
+Q173,Return,Can I exchange an item instead of returning it for money?
+Q174,Return,What if the return courier does not show up on the scheduled date?
+Q175,Return,Can I return a defective item after the 7-day return window?
+Q176,Return,Are hygiene products like trimmers eligible for return?
+Q177,Return,How do I generate a return shipping label?
+Q178,Return,Can I drop off the return package at a local hub?
+Q179,Return,What happens if my return fails the warehouse inspection?
+Q180,Return,Can I return part of a combo product bundle?
+Q181,Cancellation,Why can I not cancel order O009 after dispatch?
+Q182,Cancellation,I clicked cancel on order O014. Is it confirmed?
+Q183,Cancellation,Can I reinstate an order after accidentally cancelling it?
+Q184,Cancellation,Will my applied discount coupon be restored if I cancel?
+Q185,Cancellation,Can customer support manually cancel order O022 for me?
+Q186,Cancellation,How do I cancel a pre-ordered product?
+Q187,Cancellation,Can I refuse delivery at doorstep as a form of cancellation?
+Q188,Cancellation,Are there any penalty fees for cancelling before shipment?
+Q189,Cancellation,Can I cancel an order paid via UPI?
+Q190,Cancellation,Why was my order automatically cancelled by the system?
+Q191,Policies,What is the replacement policy for damaged goods?
+Q192,Policies,Does SafeCart offer international shipping?
+Q193,Policies,What are the conditions under which a refund is denied?
+Q194,Policies,Is there a price match guarantee policy?
+Q195,Policies,What data privacy policy protects my saved card details?
+Q196,Policies,What is the policy regarding delayed shipment compensation?
+Q197,Policies,Are refurbished electronics covered under warranty?
+Q198,Policies,What is the policy for gift cards and store credits?
+Q199,Policies,What rules apply to promotional discount codes?
+Q200,Policies,How does SafeCart handle counterfeit seller reports?
+Q201,Problems,The power bank I received is not holding charge.
+Q202,Problems,My Bluetooth speaker makes a cracking noise at high volume.
+Q203,Problems,The zipper on the backpack broke on first use.
+Q204,Problems,The water bottle arrived with a severe dent.
+Q205,Problems,The screen on the smart watch has dead pixels.
+Q206,Problems,My package was delivered to a neighbor without my consent.
+Q207,Problems,I received only one shoe in the footwear box.
+Q208,Problems,The induction cooktop shows an error code E0 on power on.
+Q209,Problems,The sunglasses lenses arrived with deep scratches.
+Q210,Problems,I am unable to connect the Wi-Fi router to my modem.
+Q211,Price,How much does product P001 cost?
+Q212,Price,What is the catalog price for product P015?
+Q213,Price,Can you look up the price of product P024?
+Q214,Price,Tell me the listed price of product P035.
+Q215,Price,What is the rate for product P048 in stationery?
+Q216,Price,How much will product P055 cost including taxes?
+Q217,Price,Are there any seasonal discounts on product P012?
+Q218,Price,What is the price difference between P021 and P022?
+Q219,Price,Can you confirm the price of product P039?
+Q220,Price,What is the MRP of product P060?
+Q221,Availability,Check stock for product P005 please.
+Q222,Availability,Is product P018 in stock at the local warehouse?
+Q223,Availability,How many units of P027 do you have ready to ship?
+Q224,Availability,When will product P009 be restocked?
+Q225,Availability,Is product P033 currently available for bulk purchase?
+Q226,Availability,Can I get notified when product P044 is back in stock?
+Q227,Availability,Is product P051 available for immediate delivery?
+Q228,Availability,Check availability for product P014 in Computers.
+Q229,Availability,Are there sufficient units of P037 air fryer in stock?
+Q230,Availability,Is product P058 available in personal care?
+Q231,Product Information,Give me full details for product P003.
+Q232,Product Information,What category does product P017 belong to?
+Q233,Product Information,Describe the key features of product P029.
+Q234,Product Information,What is the description of product P040?
+Q235,Product Information,What are the dimensions and specs of product P046?
+Q236,Product Information,Tell me about the warranty duration for product P013.
+Q237,Product Information,Is product P026 suitable for driving in bright sun?
+Q238,Product Information,What accessories come included with product P006?
+Q239,Product Information,Does product P054 contain any latex?
+Q240,Product Information,What power input is needed for product P036?
+Q241,Delivery,When will order O003 be delivered?
+Q242,Delivery,What is the delivery date listed for order O012?
+Q243,Delivery,Can you check the shipping status of order O019?
+Q244,Delivery,Is order O027 out for delivery today?
+Q245,Delivery,How many days will order O029 take to reach Mumbai?
+Q246,Delivery,Has the delivery timeframe passed for order O007?
+Q247,Delivery,Can I expedite the delivery on order O013?
+Q248,Delivery,What is the expected dispatch date for order O023?
+Q249,Delivery,Is Sunday delivery available for my order O024?
+Q250,Delivery,Can I specify a preferred delivery time slot for order O015?
+Q251,Order Status,Provide an update on order O008.
+Q252,Order Status,What is the latest status log for order O014?
+Q253,Order Status,Has order O020 reached the final destination hub?
+Q254,Order Status,Why is order O028 marked delayed in transit?
+Q255,Order Status,Verify if order O030 has been successfully processed.
+Q256,Order Status,Can I track order O005 using my mobile number?
+Q257,Order Status,Is order O017 still waiting for courier pickup?
+Q258,Order Status,What is the current location of order O022?
+Q259,Order Status,Can you send order status updates to my email?
+Q260,Order Status,Is my order O011 active or cancelled?
+Q261,Refund,Is order O001 refundable according to the policy?
+Q262,Refund,Check refund eligibility for order O010.
+Q263,Refund,Can I get a refund on order O016 if it arrived late?
+Q264,Refund,Has the refund transaction completed for order O018?
+Q265,Refund,Why was refund declined for order O024?
+Q266,Refund,What is the status of my refund for order O027?
+Q267,Refund,Can I request a partial refund for damaged accessories in order O009?
+Q268,Refund,Who approves the refund request for order O015?
+Q269,Refund,Is order O022 already marked as refunded in the system?
+Q270,Refund,How do I provide bank details for an offline refund?
+Q271,Return,Can I initiate a return for order O004?
+Q272,Return,What is the return deadline for order O013?
+Q273,Return,Is return enabled for order O025?
+Q274,Return,Can I exchange the size of the shoes in order O030?
+Q275,Return,How do I print the return bar code for order O006?
+Q276,Return,Can the courier agent test the product during return pickup?
+Q277,Return,What should I do if the return package was not collected?
+Q278,Return,Is the return window 7 days or 14 days from delivery?
+Q279,Policies,What is the policy for damaged deliveries?
+Q280,Policies,What are the rules for partial refunds?
+Q281,Problems,My product arrived damaged. What should I do?
+Q282,Problems,My laptop has stopped working. Can I get a refund?
+Q283,Problems,I received the wrong item in my order. What should I do?
+Q284,Problems,My package has not arrived yet. What should I do?
+Q285,Problems,The product I received is different from my order. What now?
+Q286,Problems,My order was delivered to the wrong address. What can I do?
+Q287,Problems,I received fewer items than I ordered. What should I do?
+Q288,Problems,My product is defective. Can I request a replacement?
+Q289,Problems,The delivery date has passed. Why has my order not arrived?
+Q290,Problems,My order arrived late. Can I ask for a refund?
+Q291,Price,What is the price of the wireless mouse?
+Q292,Price,How much does the bluetooth earbud set cost?
+Q293,Price,What is the price of the portable speaker?
+Q294,Price,How much does the air purifier cost?
+Q295,Price,What is the price of the electric kettle?
+Q296,Price,How much does the smart bulb cost?
+Q297,Price,What is the price of the digital camera?
+Q298,Price,How much does the stand mixer cost?
+Q299,Price,What is the price of the foldable desk?
+Q300,Price,How much does the power strip cost?
+Q301,Price,What is the listed price of product P061?
+Q302,Price,How much does the noise cancelling headphone P061 cost?
+Q303,Price,What is the price for product P071?
+Q304,Price,How much is the flagship smartphone P071?
+Q305,Price,What is the retail price of product P100?
+Q306,Price,Tell me the selling price of product P135.
+Q307,Price,What is the price for product P165?
+Q308,Price,How much does product P200 cost?
+Q309,Price,What is the price of product P250?
+Q310,Price,How much do I need to pay for product P300?
+Q311,Price,What is the price of product P350?
+Q312,Price,How much does product P400 cost?
+Q313,Price,What is the cost of product P450?
+Q314,Price,Tell me the price of product P500.
+Q315,Price,What is the price of the soundbar speaker?
+Q316,Price,How much does the graphic drawing tablet cost?
+Q317,Price,What is the price of the 4K UHD monitor?
+Q318,Price,How much does the high-back executive chair cost?
+Q319,Price,What is the cost of the standing desk?
+Q320,Price,How much is the robot vacuum cleaner?
+Q321,Availability,Is product P065 currently available in stock?
+Q322,Availability,Do you have stock for product P075?
+Q323,Availability,What is the inventory count for product P085?
+Q324,Availability,Is product P095 available for immediate dispatch?
+Q325,Availability,How many units of product P120 are in the warehouse?
+Q326,Availability,Is product P150 currently in stock?
+Q327,Availability,Can I buy product P180 right now?
+Q328,Availability,Do you have product P210 available?
+Q329,Availability,Check if product P240 is in stock.
+Q330,Availability,Is product P270 currently available?
+Q331,Availability,Are there any units left for product P310?
+Q332,Availability,Check stock status for product P360.
+Q333,Availability,Is product P410 available for delivery?
+Q334,Availability,How many items of product P460 are left?
+Q335,Availability,Is product P490 in stock right now?
+Q336,Availability,Are the noise cancelling headphones in stock?
+Q337,Availability,Is the mesh Wi-Fi system available?
+Q338,Availability,Do you have the gaming headset in stock?
+Q339,Availability,Is the tower air purifier in stock?
+Q340,Availability,Are there any stainless steel pressure cookers available?
+Q341,Product Information,Tell me more about product P066.
+Q342,Product Information,What are the features of product P074?
+Q343,Product Information,Can you provide details for product P081?
+Q344,Product Information,What category does product P105 belong to?
+Q345,Product Information,Give me the description of product P115.
+Q346,Product Information,What are the technical specs of product P125?
+Q347,Product Information,Tell me about the design of product P145.
+Q348,Product Information,What materials are used in product P175?
+Q349,Product Information,Can you explain what product P205 does?
+Q350,Product Information,What are the key specifications of product P235?
+Q351,Product Information,Give me product information for product P265.
+Q352,Product Information,What details are available for product P295?
+Q353,Product Information,Tell me about product P325.
+Q354,Product Information,What are the details of product P375?
+Q355,Product Information,Can you summarize the features of product P425?
+Q356,Product Information,Tell me about the active noise cancelling headphones.
+Q357,Product Information,What features does the smart door lock have?
+Q358,Product Information,Can you describe the electric standing desk?
+Q359,Product Information,What are the details of the handheld garment steamer?
+Q360,Product Information,Give me information about the ultrasonic humidifier.
+Q361,Delivery,When will order O035 be delivered?
+Q362,Delivery,What is the estimated delivery date for order O045?
+Q363,Delivery,Has my shipment for order O055 been dispatched?
+Q364,Delivery,When should I expect the delivery of order O065?
+Q365,Delivery,Can you check the delivery timeline for order O075?
+Q366,Delivery,What is the expected delivery date for order O085?
+Q367,Delivery,When is order O095 arriving at my address?
+Q368,Delivery,Has order O105 reached the courier facility?
+Q369,Delivery,When will the courier deliver order O125?
+Q370,Delivery,Can you track the delivery date for order O150?
+Q371,Delivery,What is the delivery date for order O175?
+Q372,Delivery,When can I expect order O200 to arrive?
+Q373,Delivery,What is the delivery schedule for order O250?
+Q374,Delivery,When will order O300 be delivered to me?
+Q375,Delivery,What is the expected arrival date for order O350?
+Q376,Delivery,When will order O400 be delivered?
+Q377,Delivery,Can you confirm the delivery date for order O450?
+Q378,Delivery,When is the estimated delivery for order O480?
+Q379,Delivery,What is the delivery date for order O495?
+Q380,Delivery,When will my package for order O500 arrive?
+Q381,Order Status,What is the current status of order O032?
+Q382,Order Status,Can you check the progress of order O042?
+Q383,Order Status,Has order O052 been processed?
+Q384,Order Status,What is happening with my order O062?
+Q385,Order Status,Can you give me an update on order O072?
+Q386,Order Status,Has order O082 been shipped yet?
+Q387,Order Status,Is order O092 still in processing?
+Q388,Order Status,Check the current status for order O102.
+Q389,Order Status,What is the latest tracking update on order O120?
+Q390,Order Status,Can you trace the progress of order O140?
+Q391,Order Status,Where is my order O160 right now?
+Q392,Order Status,Has order O180 been confirmed by the seller?
+Q393,Order Status,Is order O210 ready for dispatch?
+Q394,Order Status,Can you check the status of order O260?
+Q395,Order Status,What is the status of my order O310?
+Q396,Order Status,Has order O360 been dispatched?
+Q397,Order Status,Check the order status for order O410.
+Q398,Order Status,What is the status update on order O440?
+Q399,Order Status,Is order O470 out for delivery?
+Q400,Order Status,Can you verify the status of order O490?
+Q401,Refund,Can I request a refund for order O033?
+Q402,Refund,Is order O043 eligible for a refund?
+Q403,Refund,Has the refund for order O055 been issued?
+Q404,Refund,Can I get my money back for order O067?
+Q405,Refund,What is the refund status of order O079?
+Q406,Refund,Is order O091 eligible for refund?
+Q407,Refund,Why is order O102 not eligible for a refund?
+Q408,Refund,When will the refund for order O115 be processed?
+Q409,Refund,Has the refund been approved for order O133?
+Q410,Refund,Can I get a refund on my purchase for order O151?
+Q411,Refund,Is order O187 eligible for a refund?
+Q412,Refund,Can you refund my payment for order O223?
+Q413,Refund,Has my refund for order O259 been completed?
+Q414,Refund,Is order O295 refundable under policy?
+Q415,Refund,When will I receive my refund for order O331?
+Q416,Refund,Can I get a refund for order O373?
+Q417,Refund,What is the refund policy for order O415?
+Q418,Refund,Has order O451 been refunded to my account?
+Q419,Refund,Can you confirm if order O475 is refunded?
+Q420,Refund,Is order O499 refundable?
+Q421,Return,Can I return the item from order O031?
+Q422,Return,What is the return process for order O041?
+Q423,Return,Can I return my product from order O051?
+Q424,Return,Is order O061 eligible for return pickup?
+Q425,Return,I want to initiate a return for order O071.
+Q426,Return,Can I return the product I received in order O081?
+Q427,Return,Is order O097 eligible for return?
+Q428,Return,How can I schedule a return for order O111?
+Q429,Return,Can I return the product from order O135?
+Q430,Return,Is a return pickup possible for order O155?
+Q431,Return,Can I return the product in order O195?
+Q432,Return,What are the return steps for order O235?
+Q433,Return,Can I return the item delivered for order O275?
+Q434,Return,Is order O315 eligible for product return?
+Q435,Return,I want to return the package for order O355.
+Q436,Return,Can I return order O395?
+Q437,Return,How do I return the product in order O435?
+Q438,Return,Is order O475 eligible for return?
+Q439,Return,Can I return my item from order O493?
+Q440,Return,What is the return window for order O499?
+Q441,Cancellation,Can I cancel my order O034?
+Q442,Cancellation,I want to cancel order O044 immediately.
+Q443,Cancellation,Can you stop shipment and cancel order O056?
+Q444,Cancellation,Is it possible to cancel order O068?
+Q445,Cancellation,Can I cancel order O080 before it ships?
+Q446,Cancellation,Please cancel order O094 for me.
+Q447,Cancellation,Is order O108 cancelled?
+Q448,Cancellation,Can I cancel order O124?
+Q449,Cancellation,I would like to cancel order O148.
+Q450,Cancellation,Can you cancel my purchase for order O172?
+Q451,Cancellation,Can order O202 be cancelled?
+Q452,Cancellation,Please cancel my order O242.
+Q453,Cancellation,I want to cancel the shipment for order O282.
+Q454,Cancellation,Can I cancel order O322?
+Q455,Cancellation,Is it too late to cancel order O362?
+Q456,Cancellation,Please confirm cancellation for order O402.
+Q457,Cancellation,Can I cancel order O442?
+Q458,Cancellation,I request cancellation for order O472.
+Q459,Cancellation,Can order O488 be cancelled?
+Q460,Cancellation,Please cancel my pending order O498.
+Q461,Problems,My order O037 arrived with damaged packaging.
+Q462,Problems,The item delivered in order O047 was completely wrong.
+Q463,Problems,Product in order O057 is defective and will not turn on.
+Q464,Problems,My order O069 is missing the charger cable.
+Q465,Problems,The item from order O077 does not work as advertised.
+Q466,Problems,Order O087 has not arrived even after the delivery date.
+Q467,Problems,I received a broken glass item in order O097.
+Q468,Problems,Order O107 had a crushed box and scratched product.
+Q469,Problems,The product from order O127 stopped functioning.
+Q470,Problems,I was sent the wrong color item in order O147.
+Q471,Problems,The item in order O167 is missing key accessories.
+Q472,Problems,Package for order O187 was left in the rain.
+Q473,Problems,The screen on the device in order O207 is cracked.
+Q474,Problems,I received an empty box for order O247.
+Q475,Problems,The product in order O287 has a loose connector.
+Q476,Problems,Order O327 arrived two weeks late.
+Q477,Problems,The size sent for order O367 was incorrect.
+Q478,Problems,My delivery for order O407 was signed by a stranger.
+Q479,Problems,The product from order O447 makes a loud buzzing sound.
+Q480,Problems,Order O487 arrived with missing warranty card.
+Q481,Policies,What is the SafeCart policy for electronic item returns?
+Q482,Policies,How many days are allowed for returns under the policy?
+Q483,Policies,What are the general refund conditions?
+Q484,Policies,Can an order be cancelled after it is shipped according to policy?
+Q485,Policies,What is the policy for processing approved refunds?
+Q486,Policies,What rules apply to returning opened electronic products?
+Q487,Policies,What is the standard cancellation policy?
+Q488,Policies,Are defective products eligible for an immediate refund under policy?
+Q489,Policies,What condition must goods be in for return approval?
+Q490,Policies,How does the refund verification process work?
+Q491,Price,Can you look up the price for product P485?
+Q492,Price,What is the cost of product P495?
+Q493,Availability,Is product P485 in stock?
+Q494,Availability,Do you have inventory for product P495?
+Q495,Product Information,Tell me about product P485.
+Q496,Product Information,What are the features of product P495?
+Q497,Delivery,When will order O485 be delivered?
+Q498,Order Status,What is the status of order O485?
+Q499,Refund,Can I get a refund for order O485?
+Q500,Cancellation,Can I cancel order O485?

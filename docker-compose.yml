@@ -1,0 +1,12 @@
+services:
+  safecart:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: safecart-app
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - ALLOWED_ORIGINS=*
+    restart: unless-stopped

@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*$py.class
+node_modules/
+.git/
+.gitignore
+.vscode/
+dist/
+.env*
+run_all_tests.py
+test_e2e_integration.py
