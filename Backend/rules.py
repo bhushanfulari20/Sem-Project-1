@@ -75,6 +75,51 @@ SAFETY_RULES = [
             "The Worker AI may be corrected at most three times. "
             "After that, the request must be escalated or blocked."
         )
+    },
+
+    {
+        "id": "RULE_008",
+        "name": "Inventory Deduction Accuracy",
+        "description": (
+            "Orders may only be confirmed when live inventory is "
+            "available and decremented in the database."
+        )
+    },
+
+    {
+        "id": "RULE_009",
+        "name": "Verified Order Placement",
+        "description": (
+            "The system must validate product existence, database price, "
+            "and stock before creating any customer order."
+        )
+    },
+
+    {
+        "id": "RULE_010",
+        "name": "Real Database Catalog Search",
+        "description": (
+            "Product search and recommendations must only reference "
+            "actual products present in the database."
+        )
+    },
+
+    {
+        "id": "RULE_011",
+        "name": "Order Privacy and Ownership Verification",
+        "description": (
+            "Private customer information and order details must only be "
+            "revealed after authentication and verified order ownership."
+        )
+    },
+
+    {
+        "id": "RULE_012",
+        "name": "Exact ID Validation",
+        "description": (
+            "Product IDs and Order IDs must be validated against the active "
+            "database. Invalid or non-existent IDs must be rejected."
+        )
     }
 ]
 
@@ -325,3 +370,148 @@ def is_complaint_query(query):
         query,
         COMPLAINT_KEYWORDS
     )
+
+
+# --------------------------------------------------
+# Search Keywords
+# --------------------------------------------------
+
+SEARCH_KEYWORDS = [
+    "search for",
+    "search",
+    "find product",
+    "find item",
+    "looking for",
+    "browse",
+    "show me products",
+    "show products",
+    "recommend",
+    "do you have"
+]
+
+
+# --------------------------------------------------
+# Cart Keywords
+# --------------------------------------------------
+
+CART_KEYWORDS = [
+    "add to cart",
+    "add to my cart",
+    "add this to cart",
+    "put in cart",
+    "view cart",
+    "show cart",
+    "my cart",
+    "open cart",
+    "in my cart",
+    "cart items"
+]
+
+
+# --------------------------------------------------
+# Checkout / Place Order Keywords
+# --------------------------------------------------
+
+CHECKOUT_KEYWORDS = [
+    "checkout",
+    "place order",
+    "place an order",
+    "buy now",
+    "buy this",
+    "buy product",
+    "purchase",
+    "order this",
+    "order product",
+    "confirm order"
+]
+
+
+def is_search_query(query):
+    return contains_keyword(query, SEARCH_KEYWORDS)
+
+
+def is_cart_query(query):
+    return contains_keyword(query, CART_KEYWORDS)
+
+
+def is_checkout_query(query):
+    return contains_keyword(query, CHECKOUT_KEYWORDS)
+
+
+# --------------------------------------------------
+# Product ID & Order ID Lookup Detection
+# --------------------------------------------------
+
+import re
+
+def extract_product_id(text):
+    """Extract standard SafeCart Product ID (e.g. P001 to P500) from text."""
+    if not text:
+        return None
+    m = re.search(r'\b(P\d{3,4})\b', str(text), re.IGNORECASE)
+    return m.group(1).upper() if m else None
+
+
+def extract_order_id(text):
+    """Extract standard SafeCart Order ID (e.g. O001 to O999) from text."""
+    if not text:
+        return None
+    m = re.search(r'\b(O\d{3,4})\b', str(text), re.IGNORECASE)
+    return m.group(1).upper() if m else None
+
+
+def is_product_id_query(query):
+    """Check if query is asking for direct product lookup by Product ID."""
+    q = str(query).strip()
+    if re.fullmatch(r'P\d{3,4}', q, re.IGNORECASE):
+        return True
+    q_lower = q.lower()
+    pid = extract_product_id(q)
+    if pid and any(prefix in q_lower for prefix in [
+        "product id", "product-id", "lookup product", "lookup", "check product",
+        "show product", "product details for", "details of product", "view product",
+        "find product id", "item id", "product " + pid.lower()
+    ]):
+        return True
+    return False
+
+
+def is_order_id_query(query):
+    """Check if query is asking for direct order lookup by Order ID."""
+    q = str(query).strip()
+    if re.fullmatch(r'O\d{3,4}', q, re.IGNORECASE):
+        return True
+    q_lower = q.lower()
+    oid = extract_order_id(q)
+    if oid and any(prefix in q_lower for prefix in [
+        "order id", "order-id", "lookup order", "track order", "track", "check order",
+        "show order", "order details for", "details of order", "view order",
+        "find order id", "status of order", "order " + oid.lower()
+    ]):
+        return True
+    return False
+
+
+PRIVATE_ORDER_KEYWORDS = [
+    "customer name",
+    "who ordered",
+    "who placed",
+    "shipping address",
+    "delivery address",
+    "customer address",
+    "phone number",
+    "customer phone",
+    "customer email",
+    "payment method",
+    "billing details",
+    "private info",
+    "private details",
+    "personal details",
+    "customer details",
+    "account details"
+]
+
+
+def is_private_order_query(query):
+    """Check if customer is requesting private personal information for an order."""
+    return contains_keyword(query, PRIVATE_ORDER_KEYWORDS)

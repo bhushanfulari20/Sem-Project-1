@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pincode Validation</title>
+</head>
+<body style="color:blue;background-color:cyan"><form name="form1">
+<h1 align="center">
+Enter Pincode value:-<input type="text"name="t1"><br><br>
+<input type="button"value="submit value"onclick="validate()"></h1>
+<script type="text/javascript">
+function Validate()
+{
+var Pincode;Pincode=form1.t1.value;
+if(Pincode.length==0)
+  {
+alert("please check,enter value");
+     form1.t1.focus();
+}
+else if(Number.isInteger(Pincode))
+     {
+alert("please,enter integer number only");
+   form1.t1.focus();
+}
+else if(Pincode.length<6||Pincode.length>8)
+ {
+ alert("Pincode length range between 6 to 8");
+   form1.t1.focus();
+}
+else
+alert("Pincode is accepted");
+</script>
+</body>
+</html>

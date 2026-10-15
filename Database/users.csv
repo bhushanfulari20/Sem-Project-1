@@ -1,0 +1,6 @@
+user_id,name,email,password,address
+U001,Bhushan Fulari,bhushan@safecart.com,pass123,"123 MG Road, Mumbai, India"
+U002,Harshada Dhangar,harshada@safecart.com,pass123,"456 Park Street, Pune, India"
+U003,Purvaja Dutte,purvaja@safecart.com,pass123,"789 Lake View, Delhi, India"
+U004,Bhavesh Patil,bhavesh@safecart.com,pass123,"101 Hill Road, Bangalore, India"
+U005,Amazon Customer,customer@amazon.in,pass123,"202 Marine Drive, Mumbai, India"

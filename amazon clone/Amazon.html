@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Clone • SafeCart Verified E-Commerce</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo border" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="logo"></div>
+            </div>
+            <div class="nav-address border" id="deliver-address-btn" title="Click to update delivery address">
+                <p class="add-sonu">Deliver to</p>
+                <div class="add-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p class="add-golu" id="nav-address-text">Mumbai, India</p>
+                </div>
+            </div>
+
+            <div class="nav-search">
+                <select class="search-select" id="search-category-select">
+                    <option value="all">All</option>
+                </select>
+                <input placeholder="Search Items" class="search-input" id="search-input">
+                <div class="search-icon" id="search-btn" title="Search SafeCart catalog">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+
+            <div class="nav-signin border" id="nav-signin-btn" title="User account / Switch profile">
+                <p><span id="nav-user-greeting">Hello, Amazon Customer</span></p>
+                <p class="nav-sec">Account & Lists</p>
+            </div>
+
+            <div class="nav-return border" id="nav-orders-btn" title="View database orders & tracking">
+                <p><span>Returns</span></p>
+                <p class="nav-sec">& Orders</p>
+            </div>
+
+            <div class="nav-cart border" id="nav-cart-btn" title="View SafeCart shopping cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count-badge" id="nav-cart-badge">0</span>
+                Cart
+            </div>
+
+            <div class="nav-prime-badge border" title="SafeCart Prime Verified">
+                <i class="fa-solid fa-bolt" style="color: #ff9900;"></i>
+                <span style="font-weight: 700; color: #fff;">Prime</span>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-all" id="panel-all-btn">
+                <i class="fa-solid fa-bars"></i>
+                All
+            </div>
+            <div class="panel-ops">
+                <p>Today's Deals</p>
+                <p>Fresh</p>
+                <p>MX Player</p>
+                <p>Sell</p>
+                <p>Best Sellers</p>
+                <p>Mobiles</p>
+                <p>Electronics</p>
+                <p>Home & Kitchen</p>
+                <p style="color: #febd69; font-weight: bold;"><i class="fa-solid fa-robot"></i> Customer Service</p>
+                <p>Prime</p>
+                <p>New Releases</p>
+                <p>Fashion</p>
+            </div>
+            <div class="panel-deals">
+                <i class="fa-solid fa-tv"></i>
+                Shop Deals in Electronics
+            </div>
+        </div>
+    </header>
+
+    <div class="hero-section">
+        <div class="hero-msg">
+            <p>
+                SafeCart AI Compliance Shield is active. Shop all 500 verified database products with real-time
+                inventory and pricing.
+                <a href="#catalog-section">Browse All 500 Products</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="shop-section">
+        <div class="box1 box">
+            <div class="box-content">
+                <h2>Clothing</h2>
+                <div class="box-img" style="background-image: url('box1_image.jpg');"></div>
+                <a href="#catalog-section" class="see-more">See more</a>
+            </div>
+        </div>
+
+        <div class="box2 box">
+            <div class="box-content">
+                <h2>Health & Personal Care</h2>
+                <div class="box-img" style="background-image: url('box2_image.jpg');"></div>
+                <a href="#catalog-section" class="see-more">See more</a>
+            </div>
+        </div>
+
+        <div class="box3 box">
+            <div class="box-content">
+                <h2>Furniture</h2>
+                <div class="box-img" style="background-image: url('box3_image.jpg');"></div>
+                <a href="#catalog-section" class="see-more">See more</a>
+            </div>
+        </div>
+
+        <div class="box4 box">
+            <div class="box-content">
+                <h2>Electronics</h2>
+                <div class="box-img" style="background-image: url('box4_image.jpg');"></div>
+                <a href="#catalog-section" class="see-more">See more</a>
+            </div>
+        </div>
+
+        <div class="box5 box">
+            <div class="box-content">
+                <h2>Beauty picks</h2>
+                <div class="box-img" style="background-image: url('box5_image.jpg');"></div>
+                <a href="#catalog-section" class="see-more">See more</a>
+            </div>
+        </div>
+
+        <div class="box6 box">
+            <div class="box-content">
+                <h2>Pet care</h2>
+                <div class="box-img" style="background-image: url('box6_image.jpg');"></div>
+                <a href="#catalog-section" class="see-more">See more</a>
+            </div>
+        </div>
+
+        <div class="box7 box">
+            <div class="box-content">
+                <h2>New Arrivals in Toys</h2>
+                <div class="box-img" style="background-image: url('box7_image.jpg');"></div>
+                <a href="#catalog-section" class="see-more">See more</a>
+            </div>
+        </div>
+
+        <div class="box8 box">
+            <div class="box-content">
+                <h2>Discover Fashion Trends</h2>
+                <div class="box-img" style="background-image: url('box8_image.jpg');"></div>
+                <a href="#catalog-section" class="see-more">See more</a>
+            </div>
+        </div>
+
+        <div class="box9 box">
+            <div class="box-content">
+                <h2>Starting ₹99 | Fitness Journey</h2>
+                <div class="box-img" style="background-image: url('box9_image.jpg');"></div>
+                <a href="#catalog-section" class="see-more">See more</a>
+            </div>
+        </div>
+
+        <div class="box10 box">
+            <div class="box-content">
+                <h2>Best Sellers in Sports & Fitness</h2>
+                <div class="box-img" style="background-image: url('box10_image.jpg');"></div>
+                <a href="#catalog-section" class="see-more">See more</a>
+            </div>
+        </div>
+
+        <div class="box11 box">
+            <div class="box-content">
+                <h2>Under ₹899 | Combo Packs</h2>
+                <div class="box-img" style="background-image: url('box11_image.jpg');"></div>
+                <a href="#catalog-section" class="see-more">See more</a>
+            </div>
+        </div>
+
+        <div class="box12 box">
+            <div class="box-content">
+                <h2>Deals Curated from Stores Nearby</h2>
+                <div class="box-img" style="background-image: url('box12_image.jpg');"></div>
+                <a href="#catalog-section" class="see-more">See more</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- SafeCart Verified Product Catalog (500 Products)           -->
+    <!-- ========================================================= -->
+    <section class="catalog-section" id="catalog-section">
+        <div class="catalog-header-bar">
+            <div class="catalog-title-group">
+                <h2>
+                    <i class="fa-solid fa-shield-halved" style="color: #ff9900;"></i>
+                    SafeCart Verified Catalog (500 Products)
+                </h2>
+                <p>Single source of truth: all prices and inventory live from SafeCart database.</p>
+            </div>
+            <div class="catalog-header-actions">
+                <div class="catalog-view-toggle">
+                    <button class="catalog-view-btn active" id="view-mode-shelves-btn"
+                        onclick="switchCatalogView('shelves')" title="Category-Wise Shelves View">
+                        <i class="fa-solid fa-layer-group"></i> Category Shelves
+                    </button>
+                    <button class="catalog-view-btn" id="view-mode-grid-btn" onclick="switchCatalogView('grid')"
+                        title="All Products Grid View">
+                        <i class="fa-solid fa-table-cells"></i> Grid View
+                    </button>
+                </div>
+                <button class="catalog-sync-btn" onclick="openDbSyncModal()"
+                    title="Synchronize products and stock with database">
+                    <i class="fa-solid fa-database"></i> DB Sync
+                </button>
+                <span class="db-status-pill">
+                    <span class="db-status-dot"></span>
+                    SafeCart DB Connected • 500 Products
+                </span>
+                <span class="db-status-pill" title="Live inventory synchronized directly with database">
+                    <i class="fa-solid fa-shield-halved" style="color: #067d62;"></i> Live Inventory Active
+                </span>
+            </div>
+        </div>
+
+        <div class="catalog-toolbar">
+            <div class="filter-pills" id="filter-pills-container">
+                <!-- Dynamically populated category buttons -->
+            </div>
+
+            <div class="catalog-sort-group">
+                <label for="catalog-sort-select"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort by:</label>
+                <select id="catalog-sort-select">
+                    <option value="featured">Featured (Default)</option>
+                    <option value="price_asc">Price: Low to High</option>
+                    <option value="price_desc">Price: High to Low</option>
+                    <option value="stock_desc">Highest Stock First</option>
+                    <option value="name_asc">Name: A to Z</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Category Shelves View (500 Products Grouped Category-Wise) -->
+        <div class="category-shelves-container" id="category-shelves-container">
+            <!-- Dynamically populated category shelf rows by amazon_clone.js -->
+        </div>
+
+        <!-- Filtered Grid View -->
+        <div class="grid-view-wrapper" id="grid-view-wrapper" style="display: none;">
+            <div class="results-meta" id="results-count">
+                <span>Loading products from database...</span>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+                <!-- Dynamic Product Cards injected by amazon_clone.js -->
+            </div>
+
+            <div class="pagination-container" id="pagination-container">
+                <!-- Dynamic Pagination Buttons -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- Modals & Drawers                                          -->
+    <!-- ========================================================= -->
+
+    <!-- Product Detail Modal -->
+    <div class="modal-overlay" id="product-detail-modal">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeModal('product-detail-modal')">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="detail-modal-body" id="product-modal-body">
+                <!-- Injected by amazon_clone.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide-Out Cart Drawer -->
+    <div class="cart-drawer-overlay" id="cart-drawer-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-header">
+            <h3><i class="fa-solid fa-cart-shopping"></i> Shopping Cart <span id="cart-header-count"
+                    style="font-size: 0.9rem; font-weight: normal; opacity: 0.9;"></span></h3>
+            <button class="cart-drawer-close" onclick="closeCartDrawer()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-delivery-callout">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>Your order qualifies for <strong>FREE Delivery</strong> across India!</span>
+        </div>
+        <div class="cart-items-body" id="cart-items-body">
+            <!-- Injected by amazon_clone.js -->
+        </div>
+        <div class="cart-drawer-footer">
+            <div class="cart-subtotal-row">
+                <span>Subtotal:</span>
+                <span id="cart-subtotal-text" style="color: #b12704;">₹0</span>
+            </div>
+            <p style="font-size: 0.78rem; color: #565959; margin-bottom: 12px;">
+                <i class="fa-solid fa-shield-halved"></i> Live SafeCart verification: prices & stock checked against
+                database.
+            </p>
+            <button class="btn-proceed-checkout" onclick="openCheckout()">
+                Proceed to Checkout
+            </button>
+            <button class="btn-clear-cart" onclick="clearCart()">
+                Clear Cart
+            </button>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkout-modal">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeModal('checkout-modal')">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="checkout-modal-body" id="checkout-modal-body">
+                <!-- Injected by amazon_clone.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Dedicated Real-Time Order Tracking Modal -->
+    <div class="modal-overlay" id="order-tracking-modal">
+        <div class="modal-content" style="max-width: 680px;">
+            <button class="modal-close-btn" onclick="closeModal('order-tracking-modal')">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="tracking-modal-body" id="tracking-modal-body" style="padding: 24px 28px;">
+                <!-- Injected by amazon_clone.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Orders & Returns Modal -->
+    <div class="modal-overlay" id="orders-modal">
+        <div class="modal-content">
+            <button class="modal-close-btn" onclick="closeModal('orders-modal')">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="orders-modal-body" id="orders-modal-body">
+                <!-- Injected by amazon_clone.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- User Authentication & Switch Modal -->
+    <div class="modal-overlay" id="auth-modal">
+        <div class="modal-content" style="max-width: 480px;">
+            <button class="modal-close-btn" onclick="closeModal('auth-modal')">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div style="padding: 26px 30px;">
+                <h2 style="font-size: 1.3rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-circle-user" style="color: #ff9900;"></i> Customer Profile
+                </h2>
+                <p style="font-size: 0.85rem; color: #565959; margin-bottom: 16px;">
+                    Select or switch active user from SafeCart database (users.csv):
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px;">
+                    <button onclick="switchUserAccount(0)"
+                        style="padding: 10px 14px; text-align: left; border: 1px solid #d5d9d9; border-radius: 6px; background: #f8f9fa; cursor: pointer;">
+                        <strong>Amazon Customer (U005)</strong><br>
+                        <span style="font-size: 0.78rem; color: #565959;">customer@amazon.in • 202 Marine Drive,
+                            Mumbai</span>
+                    </button>
+                    <button onclick="switchUserAccount(1)"
+                        style="padding: 10px 14px; text-align: left; border: 1px solid #d5d9d9; border-radius: 6px; background: #f8f9fa; cursor: pointer;">
+                        <strong>Bhushan Fulari (U001)</strong><br>
+                        <span style="font-size: 0.78rem; color: #565959;">bhushan@safecart.com • 123 MG Road,
+                            Mumbai</span>
+                    </button>
+                    <button onclick="switchUserAccount(2)"
+                        style="padding: 10px 14px; text-align: left; border: 1px solid #d5d9d9; border-radius: 6px; background: #f8f9fa; cursor: pointer;">
+                        <strong>Harshada Dhangar (U002)</strong><br>
+                        <span style="font-size: 0.78rem; color: #565959;">harshada@safecart.com • 456 Park Street,
+                            Pune</span>
+                    </button>
+                </div>
+
+                <form onsubmit="handleUserLoginSubmit(event)" style="border-top: 1px solid #e7e7e7; padding-top: 16px;">
+                    <h4 style="margin-bottom: 10px; font-size: 0.95rem;">Or Sign In with Email</h4>
+                    <div style="margin-bottom: 10px;">
+                        <input type="email" id="login-email" placeholder="customer@amazon.in" required
+                            style="width: 100%; padding: 8px 10px; border: 1px solid #888c8c; border-radius: 4px;">
+                    </div>
+                    <div style="margin-bottom: 14px;">
+                        <input type="password" id="login-password" placeholder="pass123" required
+                            style="width: 100%; padding: 8px 10px; border: 1px solid #888c8c; border-radius: 4px;">
+                    </div>
+                    <button type="submit"
+                        style="width: 100%; padding: 10px; border-radius: 20px; background: #ffd814; border: 1px solid #fcd200; font-weight: 600; cursor: pointer;">
+                        Sign In
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Database Synchronization Modal -->
+    <div class="modal-overlay" id="db-sync-modal">
+        <div class="modal-content" style="max-width: 620px;">
+            <button class="modal-close-btn" onclick="closeModal('db-sync-modal')">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div style="padding: 24px 28px;">
+                <h2 style="font-size: 1.25rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-database" style="color: #ff9900;"></i> SafeCart Database Synchronization
+                </h2>
+                <p style="font-size: 0.82rem; color: #565959; margin-bottom: 16px;">
+                    Direct synchronization with SafeCart single source of truth (products.csv and inventory.csv).
+                </p>
+
+                <!-- Status metrics -->
+                <div class="db-sync-metrics-grid" id="db-sync-metrics">
+                    <div class="db-metric-box">
+                        <span class="db-metric-num" id="metric-products-count">500</span>
+                        <span class="db-metric-label">Products</span>
+                    </div>
+                    <div class="db-metric-box">
+                        <span class="db-metric-num" id="metric-categories-count">18</span>
+                        <span class="db-metric-label">Categories</span>
+                    </div>
+                    <div class="db-metric-box">
+                        <span class="db-metric-num" id="metric-stock-count">--</span>
+                        <span class="db-metric-label">Total In Stock</span>
+                    </div>
+                </div>
+
+                <!-- Forms Container -->
+                <div style="margin-top: 18px; border-top: 1px solid #e7e7e7; padding-top: 14px;">
+                    <div style="display: flex; gap: 10px; margin-bottom: 14px;">
+                        <button type="button" class="sync-tab-btn active" id="tab-stock-btn"
+                            onclick="switchSyncTab('stock')">Update Stock</button>
+                        <button type="button" class="sync-tab-btn" id="tab-add-btn" onclick="switchSyncTab('add')">Add
+                            New Product</button>
+                    </div>
+
+                    <!-- Panel 1: Stock Update -->
+                    <div id="sync-panel-stock">
+                        <form onsubmit="handleStockUpdateSubmit(event)">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+                                <div>
+                                    <label
+                                        style="font-size: 0.8rem; font-weight: 600; display: block; margin-bottom: 4px;">Product
+                                        ID (e.g. P001):</label>
+                                    <input type="text" id="sync-stock-pid" placeholder="P001" required
+                                        style="width: 100%; padding: 7px 10px; border: 1px solid #888c8c; border-radius: 4px; text-transform: uppercase;">
+                                </div>
+                                <div>
+                                    <label
+                                        style="font-size: 0.8rem; font-weight: 600; display: block; margin-bottom: 4px;">New
+                                        Stock Quantity:</label>
+                                    <input type="number" id="sync-stock-qty" placeholder="25" min="0" required
+                                        style="width: 100%; padding: 7px 10px; border: 1px solid #888c8c; border-radius: 4px;">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-sync-submit">
+                                <i class="fa-solid fa-arrows-rotate"></i> Synchronize Stock with Database
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Panel 2: Add Product -->
+                    <div id="sync-panel-add" style="display: none;">
+                        <form onsubmit="handleAddProductSubmit(event)">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+                                <div>
+                                    <label
+                                        style="font-size: 0.8rem; font-weight: 600; display: block; margin-bottom: 4px;">Product
+                                        Name:</label>
+                                    <input type="text" id="sync-new-name" placeholder="Noise Cancelling Headphones"
+                                        required
+                                        style="width: 100%; padding: 7px 10px; border: 1px solid #888c8c; border-radius: 4px;">
+                                </div>
+                                <div>
+                                    <label
+                                        style="font-size: 0.8rem; font-weight: 600; display: block; margin-bottom: 4px;">Category:</label>
+                                    <input type="text" id="sync-new-cat" placeholder="Electronics" required
+                                        style="width: 100%; padding: 7px 10px; border: 1px solid #888c8c; border-radius: 4px;">
+                                </div>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+                                <div>
+                                    <label
+                                        style="font-size: 0.8rem; font-weight: 600; display: block; margin-bottom: 4px;">Price
+                                        (₹):</label>
+                                    <input type="number" id="sync-new-price" placeholder="2999" min="1" required
+                                        style="width: 100%; padding: 7px 10px; border: 1px solid #888c8c; border-radius: 4px;">
+                                </div>
+                                <div>
+                                    <label
+                                        style="font-size: 0.8rem; font-weight: 600; display: block; margin-bottom: 4px;">Initial
+                                        Stock Quantity:</label>
+                                    <input type="number" id="sync-new-stock" placeholder="20" min="0" required
+                                        style="width: 100%; padding: 7px 10px; border: 1px solid #888c8c; border-radius: 4px;">
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <label
+                                    style="font-size: 0.8rem; font-weight: 600; display: block; margin-bottom: 4px;">Description:</label>
+                                <textarea id="sync-new-desc" placeholder="Product specifications and features..."
+                                    rows="2"
+                                    style="width: 100%; padding: 7px 10px; border: 1px solid #888c8c; border-radius: 4px; font-family: inherit; font-size: 0.85rem;"></textarea>
+                            </div>
+                            <button type="submit" class="btn-sync-submit">
+                                <i class="fa-solid fa-plus"></i> Save Product to Database
+                            </button>
+                        </form>
+                    </div>
+
+                    <div id="sync-result-msg"
+                        style="margin-top: 12px; font-size: 0.85rem; font-weight: 600; display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- Floating SafeCart AI Chatbot Widget (Worker + Auditor)     -->
+    <!-- ========================================================= -->
+    <div class="safecart-chat-widget" id="safecart-chat-widget">
+        <!-- Floating Chat Window -->
+        <div class="chat-window" id="chat-window">
+            <div class="chat-header">
+                <div class="chat-header-title">
+                    <i class="fa-solid fa-robot"></i>
+                    <div>
+                        <h4>SafeCart AI Support</h4>
+                        <p>Worker AI + Auditor AI Verified Shield</p>
+                    </div>
+                </div>
+                <button class="chat-window-close" id="chat-close-btn" title="Close Assistant">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="chat-shield-banner">
+                <i class="fa-solid fa-shield-check" style="color: #ff9900;"></i>
+                <span>Every price, stock & policy answer is verified against database.</span>
+            </div>
+
+            <div class="chat-context-pill" id="chat-context-pill" style="display: none;">
+                <span id="chat-context-text">Attached Product: P001</span>
+                <span class="chat-context-clear" id="chat-context-clear" title="Clear context">✕ Clear</span>
+            </div>
+
+            <div class="chat-messages" id="chat-messages">
+                <!-- Injected by amazon_clone.js -->
+            </div>
+
+            <div class="chat-suggestions">
+                <button class="chip-btn" onclick="sendSuggestedQuery('Product P001')">
+                    🔍 Product P001
+                </button>
+                <button class="chip-btn" onclick="sendSuggestedQuery('Order O001')">
+                    📦 Order O001
+                </button>
+                <button class="chip-btn"
+                    onclick="sendSuggestedQuery('What is the price of Wireless Headphones (P001)?')">
+                    💰 Price of P001
+                </button>
+                <button class="chip-btn" onclick="sendSuggestedQuery('Is Laptop Stand (P009) in stock?')">
+                    📦 Stock of P009
+                </button>
+                <button class="chip-btn" onclick="sendSuggestedQuery('When will my order arrive for O001?')">
+                    🚚 Track Order O001
+                </button>
+                <button class="chip-btn" onclick="sendSuggestedQuery('Can I get a refund for order O001?')">
+                    💳 Refund for O001
+                </button>
+                <button class="chip-btn" onclick="sendSuggestedQuery('What is your return policy?')">
+                    📜 Return Policy
+                </button>
+                <button class="chip-btn" onclick="sendSuggestedQuery('Search for smart watch')">
+                    🔍 Search Smart Watch
+                </button>
+            </div>
+
+            <div class="chat-input-bar">
+                <input type="text" id="chat-input" placeholder="Ask SafeCart about products, prices, stock, orders..."
+                    autocomplete="off">
+                <button class="chat-send-btn" id="chat-send-btn" title="Send query to SafeCart AI">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Floating Chat Toggle Button -->
+        <button class="chat-toggle-btn" id="chat-toggle-btn" title="Open SafeCart AI Assistant">
+            <div class="chat-icon-badge">
+                <i class="fa-solid fa-comments"></i>
+                <div class="online-indicator"></div>
+            </div>
+            <span>SafeCart AI</span>
+        </button>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- Footer                                                    -->
+    <!-- ========================================================= -->
+    <footer>
+        <div class="foot-panel1" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            Back to top
+        </div>
+
+        <div class="foot-panel2">
+            <ul>
+                <h3>Get to Know Us</h3>
+                <a href="#">About Amazon SafeCart</a>
+                <a href="#">Careers</a>
+                <a href="#">Press Releases</a>
+                <a href="#">SafeCart AI Compliance Science</a>
+            </ul>
+            <ul>
+                <h3>Connect with Us</h3>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </ul>
+            <ul>
+                <h3>Make Money with Us</h3>
+                <a href="#">Sell on Amazon</a>
+                <a href="#">Sell under Amazon Accelerator</a>
+                <a href="#">Protect and Build Your Brand</a>
+                <a href="#">Amazon Global Selling</a>
+                <a href="#">Supply to Amazon</a>
+                <a href="#">Become an Affiliate</a>
+                <a href="#">Fulfilment by Amazon</a>
+                <a href="#">Advertise Your Products</a>
+                <a href="#">Amazon Pay on Merchants</a>
+            </ul>
+            <ul>
+                <h3>Let Us Help You</h3>
+                <a href="#" onclick="openAuthModal(); return false;">Your Account</a>
+                <a href="#" onclick="openOrdersModal(); return false;">Returns Centre & Orders</a>
+                <a href="#" onclick="openChatWindow(); return false;">SafeCart AI Support</a>
+                <a href="#">100% Purchase Protection</a>
+                <a href="#">Amazon App Download</a>
+                <a href="#">Help</a>
+            </ul>
+        </div>
+
+        <div class="foot-panel3">
+            <div class="logo"></div>
+        </div>
+
+        <div class="foot-panel4">
+            <div class="pages">
+                <a href="#">Conditions of Use & Sale</a>
+                <a href="#">Privacy Notice</a>
+                <a href="#">Interest-Based Ads</a>
+                <a href="#">SafeCart Compliance Rules</a>
+            </div>
+            <div class="copyright">
+                © 1996-2026, Amazon.com, Inc. or its affiliates • Powered by SafeCart AI Compliance Engine
+            </div>
+        </div>
+    </footer>
+
+    <!-- SafeCart Amazon Clone Integration Client Script -->
+    <script src="amazon_clone.js"></script>
+</body>
+
+</html>

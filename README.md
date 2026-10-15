@@ -10,14 +10,18 @@ SafeCart helps customers get verified information about product prices, stock av
 
 ## ✨ Features
 
-- 💰 Product price checking
-- 📦 Inventory availability checking
-- 🚚 Order delivery tracking
-- 💳 Refund eligibility checking
-- 🤖 Worker AI + Auditor AI workflow
-- 🎨 Modern React user interface
-- ⚡ FastAPI backend
-- 🗂️ CSV-based database
+- 🛒 **Full Amazon-Style Shopping Clone**: Familiar Amazon navigation, live search, department menus, product cards, detail modal, cart, demo checkout, order confirmation, and visual order tracking timeline.
+- 🔍 **SafeCart AI Chatbot with ID Lookup**: Direct lookup for any Product ID (`P001`-`P500`) or Order ID (`O001`-`O580`) with interactive product cards and direct-track buttons.
+- 🛡️ **Authentication & Order Ownership Gate**: Strict privacy protection requiring verification before disclosing sensitive customer shipping/billing information.
+- 🖼️ **500 Unique Product Images**: Every product in `Database/products.csv` has a dedicated, verified image URL with zero duplicates.
+- 💰 Product price checking & live stock updates synchronized with orders.
+- 📦 Inventory availability validation before checkout.
+- 🚚 Order delivery tracking with milestone timeline.
+- 💳 Refund eligibility checking against verified policies.
+- 🤖 Dual-Agent Governance: Worker AI Agent + Auditor AI Agent workflow.
+- 🎨 Modern React interface (`/`) and Amazon Clone interface (`/amazon`).
+- ⚡ FastAPI backend with high-speed CSV engine.
+- 🗂️ CSV-based single source of truth database.
 
 ---
 
@@ -153,15 +157,20 @@ docker compose up -d --build
 
 ### 🧪 Full System Verification & Test Commands
 
-Run the automated 8-point verification suite to validate all database records, AI agents, API routes, and frontend build:
+Run the comprehensive master verification suite to validate all database records, AI agents, API routes, Amazon clone integration, and frontend build:
 
 ```bash
 python run_all_tests.py
 ```
 
-You can also run individual unit test suites:
+Run the 13-Point Final Enhancement Verification Suite:
 ```bash
-# 1. Test database and CSV integrity
+python test_final_enhancements.py
+```
+
+You can also run individual verification test suites:
+```bash
+# 1. Test database and CSV integrity (500 products, unique images, schema)
 python Database/test_database.py
 
 # 2. Test compliance rules engine
@@ -176,8 +185,11 @@ python Backend/test_auditor.py
 # 5. Test FastAPI backend endpoints
 python Backend/test_main.py
 
-# 6. Test Live HTTP API end-to-end
-python test_e2e_integration.py
+# 6. Test Amazon Clone & SafeCart Integration (12 test cases)
+python -m unittest test_amazon_safecart_integration.py
+
+# 7. Test E2E Shopping & Checkout Demo Journey (9 test cases)
+python -m unittest test_e2e_shopping_demo.py
 ```
 
 ---
@@ -261,3 +273,4 @@ Try entering these realistic customer queries in the console or API:
 This project was created for academic purposes.
 
 ⭐ If you like this project, give it a star on GitHub!
+

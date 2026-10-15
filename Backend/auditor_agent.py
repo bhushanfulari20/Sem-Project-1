@@ -107,8 +107,30 @@ def auditor_agent(
     query,
     order_id=None,
     product_id=None,
-    worker_result=None
+    worker_result=None,
+    customer_name=None,
+    user_id=None,
+    customer_email=None
 ):
+    import re
+    if not product_id:
+        m_prod = re.search(r'\b(P\d{3,4})\b', str(query), re.IGNORECASE)
+        if m_prod:
+            product_id = m_prod.group(1).upper()
+        else:
+            q_lower = str(query).lower()
+            prods = load_csv(PRODUCTS_FILE)
+            if not prods.empty and "product_name" in prods.columns:
+                for _, row in prods.sort_values(by="product_name", key=lambda col: col.str.len(), ascending=False).iterrows():
+                    p_name = str(row["product_name"]).strip()
+                    if p_name and len(p_name) > 2 and p_name.lower() in q_lower:
+                        product_id = str(row["product_id"]).upper()
+                        break
+
+    if not order_id:
+        m_ord = re.search(r'\b(O\d{3,4})\b', str(query), re.IGNORECASE)
+        if m_ord:
+            order_id = m_ord.group(1).upper()
 
     # --------------------------------------------------------
     # Check Worker Result
@@ -600,6 +622,317 @@ def auditor_agent(
                 "corrections": ["Applied standard customer support protocol"],
                 "correction_attempts": 1
             }
+
+    # ========================================================
+    # CHECKOUT / PLACE ORDER
+    # ========================================================
+
+    if intent == "PLACE_ORDER":
+        product = find_product(product_id)
+        if product is None:
+            return {
+                "status": "ERROR",
+                "response": "Please provide a valid Product ID to place an order.",
+                "audit_decision": "REJECTED",
+                "errors": ["Product not found in database for checkout"],
+                "corrections": [],
+                "correction_attempts": 1
+            }
+
+        inventory = find_inventory(product_id)
+        quantity = int(inventory.get("quantity", 0)) if inventory else 0
+
+        if quantity <= 0:
+            correct_response = f"The product {product.get('product_name')} is currently out of stock and cannot be ordered."
+            return {
+                "status": "CORRECTED",
+                "response": correct_response,
+                "audit_decision": "CORRECTED",
+                "errors": ["Worker proposed checkout for an out-of-stock product"],
+                "corrections": [f"Blocked out-of-stock product {product_id} from checkout"],
+                "correction_attempts": 1
+            }
+
+        price = str(product.get("price"))
+        if price not in worker_response:
+            correct_response = f"Ready to place order for {product.get('product_name')} at verified price Rs. {price}. Available quantity: {quantity}. Please confirm your order."
+            return {
+                "status": "CORRECTED",
+                "response": correct_response,
+                "audit_decision": "CORRECTED",
+                "errors": [f"Worker price mismatched database price of Rs. {price}"],
+                "corrections": [f"Calibrated price to Rs. {price}"],
+                "correction_attempts": 1
+            }
+
+        return {
+            "status": "APPROVED",
+            "response": worker_response,
+            "audit_decision": "APPROVED",
+            "errors": [],
+            "corrections": [],
+            "correction_attempts": 0
+        }
+
+    # ========================================================
+    # CART (ADD / VIEW)
+    # ========================================================
+
+    if intent == "ADD_TO_CART":
+        product = find_product(product_id)
+        if product is None:
+            return {
+                "status": "ERROR",
+                "response": "Please provide a valid Product ID to add to cart.",
+                "audit_decision": "REJECTED",
+                "errors": ["Product not found in database"],
+                "corrections": [],
+                "correction_attempts": 1
+            }
+
+        inventory = find_inventory(product_id)
+        quantity = int(inventory.get("quantity", 0)) if inventory else 0
+
+        if quantity <= 0:
+            correct_response = f"The product {product.get('product_name')} is currently out of stock and cannot be added to cart."
+            return {
+                "status": "CORRECTED",
+                "response": correct_response,
+                "audit_decision": "CORRECTED",
+                "errors": ["Worker attempted to add out-of-stock product to cart"],
+                "corrections": [f"Blocked out-of-stock product {product_id} from cart"],
+                "correction_attempts": 1
+            }
+
+        price = str(product.get("price"))
+        if price not in worker_response:
+            correct_response = f"Added {product.get('product_name')} to your cart at verified price Rs. {price}! Current stock: {quantity} units available."
+            return {
+                "status": "CORRECTED",
+                "response": correct_response,
+                "audit_decision": "CORRECTED",
+                "errors": [f"Worker price mismatched database price of Rs. {price}"],
+                "corrections": [f"Calibrated price to Rs. {price}"],
+                "correction_attempts": 1
+            }
+
+        return {
+            "status": "APPROVED",
+            "response": worker_response,
+            "audit_decision": "APPROVED",
+            "errors": [],
+            "corrections": [],
+            "correction_attempts": 0
+        }
+
+    if intent == "VIEW_CART":
+        return {
+            "status": "APPROVED",
+            "response": worker_response,
+            "audit_decision": "APPROVED",
+            "errors": [],
+            "corrections": [],
+            "correction_attempts": 0
+        }
+
+    # ========================================================
+    # SEARCH
+    # ========================================================
+
+    if intent == "SEARCH":
+        products = worker_result.get("products", [])
+        verified_products = []
+        errors = []
+        for p in products:
+            pid = p.get("product_id")
+            real_p = find_product(pid)
+            if real_p and str(real_p.get("price")) == str(p.get("price")):
+                verified_products.append(p)
+            else:
+                errors.append(f"Mismatched or unverified product: {pid}")
+
+        if errors:
+            item_list = ", ".join([f"{p['product_name']} (Rs. {p['price']})" for p in verified_products[:3]])
+            calibrated_response = f"Found {len(verified_products)} verified products in catalog: {item_list}."
+            return {
+                "status": "CORRECTED",
+                "response": calibrated_response,
+                "audit_decision": "CORRECTED",
+                "errors": errors,
+                "corrections": ["Filtered search results to verified database catalog"],
+                "correction_attempts": 1
+            }
+
+        return {
+            "status": "APPROVED",
+            "response": worker_response,
+            "audit_decision": "APPROVED",
+            "errors": [],
+            "corrections": [],
+            "correction_attempts": 0
+        }
+
+    # ========================================================
+    # PRODUCT LOOKUP
+    # ========================================================
+
+    if intent == "PRODUCT_LOOKUP":
+        if worker_status == "ERROR":
+            real_product = find_product(product_id)
+            if real_product is None:
+                return {
+                    "status": "ERROR",
+                    "response": worker_response,
+                    "audit_decision": "APPROVED",
+                    "errors": [],
+                    "corrections": [],
+                    "correction_attempts": 0
+                }
+            else:
+                inv = find_inventory(product_id)
+                qty = int(inv.get("quantity", 0)) if inv else 0
+                in_stock_str = f"In Stock ({qty} units available)" if qty > 0 else "Out of Stock (0 units available)"
+                calibrated = (
+                    f"Product {product_id} found in SafeCart database:\n"
+                    f"• Name: {real_product.get('product_name')}\n"
+                    f"• Category: {real_product.get('category')}\n"
+                    f"• Price: Rs. {real_product.get('price')}\n"
+                    f"• Stock: {in_stock_str}\n"
+                    f"• Description: {real_product.get('description')}"
+                )
+                return {
+                    "status": "CORRECTED",
+                    "response": calibrated,
+                    "audit_decision": "CORRECTED",
+                    "errors": [f"Worker falsely reported product {product_id} as missing"],
+                    "corrections": [f"Retrieved verified product {product_id} from database"],
+                    "correction_attempts": 1
+                }
+        else:
+            real_product = find_product(product_id)
+            if real_product is None:
+                return {
+                    "status": "ERROR",
+                    "response": f"Product {product_id} was not found in the SafeCart database. Please provide a valid Product ID.",
+                    "audit_decision": "REJECTED",
+                    "errors": [f"Worker invented non-existent product {product_id}"],
+                    "corrections": ["Blocked hallucinated product"],
+                    "correction_attempts": 1
+                }
+
+            real_price = str(real_product.get("price"))
+            inv = find_inventory(product_id)
+            real_qty = int(inv.get("quantity", 0)) if inv else 0
+
+            errors = []
+            corrections = []
+            needs_calibration = False
+
+            if real_price not in worker_response:
+                errors.append(f"Worker price mismatched database price Rs. {real_price}")
+                corrections.append(f"Calibrated price to Rs. {real_price}")
+                needs_calibration = True
+
+            if real_qty == 0 and "out of stock" not in worker_response.lower():
+                errors.append(f"Worker claimed product in stock when database quantity is 0")
+                corrections.append("Corrected stock status to out of stock")
+                needs_calibration = True
+
+            if needs_calibration:
+                in_stock_str = f"In Stock ({real_qty} units available)" if real_qty > 0 else "Out of Stock (0 units available)"
+                calibrated = (
+                    f"Product {product_id} found in SafeCart database:\n"
+                    f"• Name: {real_product.get('product_name')}\n"
+                    f"• Category: {real_product.get('category')}\n"
+                    f"• Price: Rs. {real_price}\n"
+                    f"• Stock: {in_stock_str}\n"
+                    f"• Description: {real_product.get('description')}"
+                )
+                return {
+                    "status": "CORRECTED",
+                    "response": calibrated,
+                    "audit_decision": "CORRECTED",
+                    "errors": errors,
+                    "corrections": corrections,
+                    "correction_attempts": 1
+                }
+
+            return {
+                "status": "APPROVED",
+                "response": worker_response,
+                "audit_decision": "APPROVED",
+                "errors": [],
+                "corrections": [],
+                "correction_attempts": 0
+            }
+
+
+    # ========================================================
+    # ORDER LOOKUP
+    # ========================================================
+
+    if intent == "ORDER_LOOKUP":
+        if worker_status == "ERROR":
+            real_order = find_order(order_id)
+            if real_order is None:
+                return {
+                    "status": "ERROR",
+                    "response": worker_response,
+                    "audit_decision": "APPROVED",
+                    "errors": [],
+                    "corrections": [],
+                    "correction_attempts": 0
+                }
+            if worker_result.get("requires_auth") or worker_result.get("unauthorized"):
+                return {
+                    "status": "ERROR",
+                    "response": worker_response,
+                    "audit_decision": "APPROVED",
+                    "errors": [],
+                    "corrections": [],
+                    "correction_attempts": 0
+                }
+            return {
+                "status": "ERROR",
+                "response": worker_response,
+                "audit_decision": "APPROVED",
+                "errors": [],
+                "corrections": [],
+                "correction_attempts": 0
+            }
+        else:
+            real_order = find_order(order_id)
+            if real_order is None:
+                return {
+                    "status": "ERROR",
+                    "response": f"Order {order_id} was not found in the SafeCart database. Please provide a valid Order ID.",
+                    "audit_decision": "REJECTED",
+                    "errors": [f"Worker invented non-existent order {order_id}"],
+                    "corrections": ["Blocked hallucinated order details"],
+                    "correction_attempts": 1
+                }
+
+            real_delivery = str(real_order.get("delivery_date", ""))
+            real_pid = str(real_order.get("product_id", ""))
+            if real_delivery and real_delivery not in worker_response:
+                return {
+                    "status": "CORRECTED",
+                    "response": f"Order {order_id} was placed for product {real_pid}. Expected delivery date is {real_delivery}.",
+                    "audit_decision": "CORRECTED",
+                    "errors": [f"Worker delivery date mismatched database: {real_delivery}"],
+                    "corrections": [f"Calibrated delivery date to {real_delivery}"],
+                    "correction_attempts": 1
+                }
+
+            return {
+                "status": "APPROVED",
+                "response": worker_response,
+                "audit_decision": "APPROVED",
+                "errors": [],
+                "corrections": [],
+                "correction_attempts": 0
+            }
+
 
     # ========================================================
     # GENERAL

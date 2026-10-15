@@ -49,8 +49,8 @@ def run_db_validation():
         errors.append(f"Products count is {len(products)}, expected 500")
     if len(inventory) != 500:
         errors.append(f"Inventory count is {len(inventory)}, expected 500")
-    if len(orders) != 500:
-        errors.append(f"Orders count is {len(orders)}, expected 500")
+    if len(orders) < 500:
+        errors.append(f"Orders count is {len(orders)}, expected at least 500")
     if len(questions) != 500:
         errors.append(f"Questions count is {len(questions)}, expected 500")
     if len(policies) == 0:

@@ -98,6 +98,14 @@ def main():
     if fe_res.returncode != 0:
         all_passed = False
 
+    # Step 9: Amazon Clone & SafeCart Integration Suite
+    if not run_step("9. Amazon Clone & SafeCart Integration Suite", ["test_amazon_safecart_integration.py"], ROOT_DIR):
+        all_passed = False
+
+    # Step 10: Complete E2E Shopping Demo Journey Suite
+    if not run_step("10. Complete E2E Shopping Demo Journey Suite", ["test_e2e_shopping_demo.py"], ROOT_DIR):
+        all_passed = False
+
     print("\n" + "=" * 70)
     if all_passed:
         print("[SUCCESS] ALL PROJECT VERIFICATION CHECKS COMPLETED SUCCESSFULLY!")
