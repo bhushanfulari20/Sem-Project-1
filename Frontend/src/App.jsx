@@ -2,11 +2,11 @@ import { useState } from "react";
 
 import "./App.css";
 
-import Header from "./Components/Header";
-import CustomerForm from "./Components/CustomerForm";
-import ResponseCard from "./Components/ResponseCard";
-import AuditInfo from "./Components/AuditInfo";
-import Sidebar from "./Components/Sidebar";
+import Header from "./components/Header";
+import CustomerForm from "./components/CustomerForm";
+import ResponseCard from "./components/ResponseCard";
+import AuditInfo from "./components/AuditInfo";
+import Sidebar from "./components/Sidebar";
 
 
 // ======================================================
