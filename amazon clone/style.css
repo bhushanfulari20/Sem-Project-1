@@ -390,54 +390,7 @@ footer {
     color: #999999;
 }
 
-/** responsive design **/
-@media (max-width: 1200px) {
-    .box {
-        width: 30%;
-    }
-
-    .panel-deals {
-        display: none;
-    }
-}
-
-@media (max-width: 900px) {
-    .nav-address {
-        display: none;
-    }
-
-    .box {
-        width: 46%;
-    }
-
-    .hero-section {
-        height: 300px;
-    }
-}
-
-@media (max-width: 600px) {
-    .nav-return {
-        display: none;
-    }
-
-    .navbar {
-        padding: 0 8px;
-    }
-
-    .box {
-        width: 95%;
-    }
-
-    .hero-section {
-        height: 240px;
-    }
-
-    .foot-panel2 {
-        flex-direction: column;
-        align-items: flex-start;
-        padding-left: 30px;
-    }
-}
+/* NOTE: Comprehensive responsive design media queries are consolidated at the bottom of this file */
 
 /* ==========================================================================
    SAFECART INTEGRATED E-COMMERCE & COMPLIANCE CHATBOT STYLES
@@ -659,7 +612,9 @@ footer {
 .card-img-wrapper img {
     max-height: 100%;
     max-width: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 4px;
     transition: transform 0.25s ease;
 }
 
@@ -2373,4 +2328,253 @@ footer {
     background: #ffffff;
     border: 1px solid #e7e7e7;
     flex-shrink: 0;
+}
+
+/* ==========================================================================
+   SAFECART COMPREHENSIVE RESPONSIVE DESIGN MEDIA QUERIES
+   ========================================================================== */
+
+/* 1. Large Laptops and Small Desktops (1024px - 1279px) */
+@media (max-width: 1200px) {
+    .box {
+        width: 31%;
+    }
+    .panel-deals {
+        display: none;
+    }
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        gap: 16px;
+    }
+    .chat-window {
+        width: 380px;
+        right: 20px;
+    }
+}
+
+/* 2. Tablets and Medium Devices (769px - 1023px) */
+@media (max-width: 1024px) {
+    .nav-address {
+        display: none;
+    }
+    .box {
+        width: 47%;
+    }
+    .hero-section {
+        height: 310px;
+    }
+    .catalog-header-bar,
+    .catalog-toolbar {
+        padding: 12px 16px;
+    }
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 14px;
+    }
+    .detail-modal-body {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+    .checkout-grid-2col {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .cart-drawer {
+        width: 420px;
+    }
+    .modal-content {
+        max-width: 90vw;
+        padding: 20px;
+    }
+}
+
+/* 3. Small Tablets and Large Phones (577px - 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        height: auto;
+        flex-wrap: wrap;
+        padding: 8px 12px;
+        gap: 8px;
+    }
+    .nav-logo {
+        height: 42px;
+        width: 85px;
+    }
+    .logo {
+        height: 40px;
+        width: 85px;
+    }
+    .nav-search {
+        order: 3;
+        width: 100%;
+        max-width: 100%;
+        height: 38px;
+        margin-top: 4px;
+    }
+    .nav-return,
+    .nav-signin span:first-child {
+        display: none;
+    }
+    .panel {
+        height: 36px;
+        padding: 0 10px;
+        font-size: 0.8rem;
+    }
+    .panel-ops {
+        gap: 10px;
+        margin-left: 10px;
+    }
+    .box {
+        width: 48%;
+        min-height: 340px;
+        padding: 14px;
+    }
+    .box-img {
+        height: 200px;
+    }
+    .catalog-section {
+        padding: 18px 10px 30px;
+    }
+    .catalog-header-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .catalog-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .filter-pills {
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 4px;
+    }
+    .catalog-sort-group {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        gap: 12px;
+    }
+    .cart-drawer {
+        width: 88vw;
+        max-width: 380px;
+    }
+    .chat-window {
+        width: calc(100vw - 24px);
+        max-width: 420px;
+        right: 12px;
+        bottom: 80px;
+        height: calc(100vh - 120px);
+        max-height: 580px;
+    }
+    .tracking-steps {
+        flex-direction: column;
+        gap: 14px;
+        align-items: flex-start;
+        padding-left: 16px;
+    }
+    .tracking-progress-bar-bg {
+        display: none;
+    }
+    .tracking-step-item {
+        flex-direction: row;
+        width: auto;
+        gap: 12px;
+        text-align: left;
+    }
+    .tracking-step-label {
+        margin-top: 0;
+    }
+    .foot-panel2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding: 30px 20px;
+    }
+}
+
+/* 4. Mobile Phones Portrait (401px - 576px) */
+@media (max-width: 576px) {
+    .navbar {
+        padding: 6px 10px;
+    }
+    .box {
+        width: 100%;
+        min-height: auto;
+        margin-top: 14px;
+    }
+    .hero-section {
+        height: 220px;
+    }
+    .hero-msg {
+        font-size: 0.78rem;
+        margin-bottom: 12px;
+        padding: 6px 10px;
+    }
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+    .product-card {
+        padding: 10px;
+    }
+    .card-img-wrapper {
+        height: 130px;
+    }
+    .card-title {
+        font-size: 0.85rem;
+        height: 2.5em;
+    }
+    .card-price {
+        font-size: 1.1rem;
+    }
+    .btn-add-cart,
+    .btn-ask-safecart {
+        padding: 6px 10px;
+        font-size: 0.78rem;
+        min-height: 40px;
+    }
+    .modal-content {
+        width: 95vw;
+        max-width: 95vw;
+        padding: 14px;
+        border-radius: 10px;
+    }
+    .cart-drawer {
+        width: 100vw;
+        max-width: 100vw;
+    }
+    .chat-window {
+        width: 100vw;
+        height: 100vh;
+        max-height: 100vh;
+        right: 0;
+        bottom: 0;
+        border-radius: 0;
+        z-index: 10000;
+    }
+    .foot-panel2 {
+        grid-template-columns: 1fr;
+        padding: 24px 18px;
+    }
+}
+
+/* 5. Extra Small Devices (<= 400px) */
+@media (max-width: 400px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    .card-img-wrapper {
+        height: 170px;
+    }
+    .modal-content {
+        padding: 10px;
+    }
 }

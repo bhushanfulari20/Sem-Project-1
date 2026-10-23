@@ -585,9 +585,12 @@ function handleProductImgError(imgElem, pid, isLarge = false) {
     if (!imgElem) return;
     imgElem.onerror = null;
 
-    // First attempt: try FastAPI backend static mount if on alternate port or file protocol
-    if (pid && !imgElem.src.includes(":8000/product_images/")) {
-        imgElem.src = `http://127.0.0.1:8000/product_images/${pid}.jpg`;
+    // First attempt: try dynamic API base host if available and not yet tried
+    const apiHost = (typeof API_BASE === "string" ? API_BASE.replace(/\/api\/?$/, "") : "");
+    const candidateUrl = (apiHost ? `${apiHost}/product_images/${pid}.jpg` : `/product_images/${pid}.jpg`);
+
+    if (pid && imgElem.src !== candidateUrl && !imgElem.src.includes(`/product_images/${pid}.jpg`)) {
+        imgElem.src = candidateUrl;
         imgElem.onerror = () => {
             imgElem.onerror = null;
             const prod = (state.allProducts && state.allProducts.find(p => p.product_id === pid)) || {

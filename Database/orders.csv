@@ -613,3 +613,23 @@ O611,P051,2026-10-11,2026-10-15,Yes,No,Multi Item Shopper,shopper@amazon.in,"Pun
 O612,P052,2026-10-11,2026-10-15,Yes,No,Multi Item Shopper,shopper@amazon.in,"Pune, India",Simulated Demo Payment
 O613,P006,2026-10-11,2026-10-15,Yes,No,Demo Shopper,demo.shopper@safecart.com,"Suite 501, SafeCart Demo Tower, Mumbai, PIN: 400001",Demo Instant Pay (Auto-Confirmed Simulation)
 O614,P120,2026-10-11,2026-10-15,Yes,No,Bhushan Fulari,bhushan@safecart.com,"123 MG Road, Mumbai, India, Mumbai, Maharashtra, PIN: 400020",Instant Online Pay
+O615,P050,2026-10-23,2026-10-27,Yes,No,Test Integration Customer,test@amazon.in,"Test Street, Mumbai, India",Simulated Demo Payment
+O616,P051,2026-10-23,2026-10-27,Yes,No,Multi Item Shopper,shopper@amazon.in,"Pune, India",Simulated Demo Payment
+O617,P052,2026-10-23,2026-10-27,Yes,No,Multi Item Shopper,shopper@amazon.in,"Pune, India",Simulated Demo Payment
+O618,P006,2026-10-23,2026-10-27,Yes,No,Demo Shopper,demo.shopper@safecart.com,"Suite 501, SafeCart Demo Tower, Mumbai, PIN: 400001",Demo Instant Pay (Auto-Confirmed Simulation)
+O619,P119,2026-10-23,2026-10-27,Yes,No,Bhushan Fulari,bhushan@safecart.com,"123 MG Road, Mumbai, India, Mumbai, Maharashtra, PIN: 400020",Instant Online Pay
+O620,P304,2026-10-23,2026-10-27,Yes,No,Bhushan Fulari,bhushan@safecart.com,"123 MG Road, Mumbai, India, Mumbai, Maharashtra, PIN: 400020",Instant Online Pay
+O621,P009,2026-10-23,2026-10-27,Yes,No,Bhushan Fulari,bhushan@safecart.com,"123 MG Road, Mumbai, India, Mumbai, Maharashtra, PIN: 400020",Instant Online Pay
+O622,P006,2026-10-23,2026-10-27,Yes,No,Bhushan Fulari,bhushan@safecart.com,"123 MG Road, Mumbai, India",Simulated Demo Instant Payment
+O623,P008,2026-10-23,2026-10-27,Yes,No,Stock Tester,customer@amazon.in,India,Simulated Demo Payment
+O624,P050,2026-10-23,2026-10-27,Yes,No,Test Integration Customer,test@amazon.in,"Test Street, Mumbai, India",Simulated Demo Payment
+O625,P051,2026-10-23,2026-10-27,Yes,No,Multi Item Shopper,shopper@amazon.in,"Pune, India",Simulated Demo Payment
+O626,P052,2026-10-23,2026-10-27,Yes,No,Multi Item Shopper,shopper@amazon.in,"Pune, India",Simulated Demo Payment
+O627,P006,2026-10-23,2026-10-27,Yes,No,Demo Shopper,demo.shopper@safecart.com,"Suite 501, SafeCart Demo Tower, Mumbai, PIN: 400001",Demo Instant Pay (Auto-Confirmed Simulation)
+O628,P010,2026-10-23,2026-10-27,Yes,No,Bhushan Fulari,bhushan@safecart.com,"123 MG Road, Mumbai, India, Mumbai, Maharashtra, PIN: 400020",Instant Online Pay
+O629,P010,2026-10-23,2026-10-27,Yes,No,Bhushan Fulari,bhushan@safecart.com,"123 MG Road, Mumbai, India, Mumbai, Maharashtra, PIN: 400020",Cash on Delivery
+O630,P010,2026-10-23,2026-10-27,Yes,No,Bhushan Fulari,bhushan@safecart.com,"123 MG Road, Mumbai, India, Mumbai, Maharashtra, PIN: 400020",UPI / NetBanking
+O631,P010,2026-10-23,2026-10-27,Yes,No,Bhushan Fulari,bhushan@safecart.com,"123 MG Road, Mumbai, India, Mumbai, Maharashtra, PIN: 400020",Instant Online Pay
+O632,P010,2026-10-23,2026-10-27,Yes,No,Bhushan Fulari,bhushan@safecart.com,"123 MG Road, Mumbai, India, Mumbai, Maharashtra, PIN: 400020",Instant Online Pay
+O633,P010,2026-10-23,2026-10-27,Yes,No,Bhushan Fulari,bhushan@safecart.com,"123 MG Road, Mumbai, India, Mumbai, Maharashtra, PIN: 400020",Instant Online Pay
+O634,P010,2026-10-23,2026-10-27,Yes,No,Bhushan Fulari,bhushan@safecart.com,"123 MG Road, Mumbai, India, Mumbai, Maharashtra, PIN: 400020",Instant Online Pay

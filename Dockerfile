@@ -28,6 +28,7 @@ COPY Backend/ ./Backend/
 COPY Database/ ./Database/
 COPY models/ ./models/
 COPY utils/ ./utils/
+COPY "amazon clone/" ./"amazon clone"/
 
 # Copy built React artifacts into Frontend/dist
 COPY --from=frontend-builder /app/Frontend/dist ./Frontend/dist

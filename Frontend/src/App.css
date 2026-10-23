@@ -19,28 +19,44 @@
   --red-1: #fff0f2;
   --red-2: #bd1f3a;
   --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  --shadow-sm: 0 4px 14px rgba(15, 23, 42, 0.05);
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   background: linear-gradient(180deg, #f3f7ff 0%, var(--bg) 100%);
   color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.5;
 }
 
 button,
 input,
-textarea {
+textarea,
+select {
   font: inherit;
+}
+
+/* Prevent auto-zoom on iOS safari for inputs */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select,
+  textarea,
+  input {
+    font-size: 16px;
+  }
 }
 
 .app {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* =====================================================
@@ -52,9 +68,10 @@ textarea {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 22px 28px 18px;
+  padding: 24px 28px 18px;
 }
 
 .brand {
@@ -64,44 +81,52 @@ textarea {
 }
 
 .logo {
-  width: 58px;
-  height: 58px;
+  width: 56px;
+  height: 56px;
   display: grid;
   place-items: center;
-  border-radius: 18px;
+  border-radius: 16px;
   background: linear-gradient(135deg, #dff9ea, #c9f5d9);
   font-size: 28px;
-  box-shadow: inset 0 2px 8px rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 2px 8px rgba(255, 255, 255, 0.8), var(--shadow-sm);
+  flex-shrink: 0;
 }
 
 .brand-text {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .header h1 {
   margin: 0;
-  font-size: clamp(1.8rem, 2vw, 2.7rem);
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0f172a;
   line-height: 1.1;
 }
 
 .header p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.98rem;
+  font-size: 0.95rem;
+  font-weight: 500;
 }
 
 .topbar-actions {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 14px;
+  padding: 10px 18px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.95);
   color: var(--green-3);
+  font-size: 0.88rem;
   font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
 }
 
 .status-dot {
@@ -109,7 +134,14 @@ textarea {
   height: 10px;
   border-radius: 50%;
   background: var(--green-2);
-  box-shadow: 0 0 0 5px rgba(22, 163, 74, 0.15);
+  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.18);
+  display: inline-block;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(0.95); opacity: 0.9; }
+  50% { transform: scale(1.15); opacity: 1; }
 }
 
 /* =====================================================
@@ -118,19 +150,23 @@ textarea {
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.8fr);
-  gap: 26px;
+  grid-template-columns: minmax(0, 1.7fr) minmax(300px, 0.9fr);
+  gap: 28px;
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 12px 28px 42px;
+  padding: 12px 28px 48px;
 }
 
 .main-content {
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* =====================================================
-   CARDS
+   CARDS & CONTAINERS
 ===================================================== */
 
 .info-box,
@@ -142,11 +178,11 @@ textarea {
   border: 1px solid var(--line);
   border-radius: 20px;
   box-shadow: var(--shadow);
+  max-width: 100%;
 }
 
 .info-box {
-  padding: 24px 24px 18px;
-  margin-bottom: 20px;
+  padding: 24px 26px 20px;
   border-left: 5px solid var(--green-2);
   background: linear-gradient(135deg, #ffffff 0%, #f4fbf7 100%);
 }
@@ -154,39 +190,41 @@ textarea {
 .info-box-header {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
 .badge-green {
   display: inline-flex;
   align-self: flex-start;
-  padding: 7px 12px;
+  padding: 6px 12px;
   border-radius: 999px;
   background: var(--green-1);
   color: var(--green-3);
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .info-box strong {
   display: block;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  color: #0f172a;
 }
 
 .info-box p {
   margin: 0;
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.6;
+  font-size: 0.94rem;
 }
 
 .stats-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
-  margin-top: 20px;
+  margin-top: 18px;
 }
 
 .stat-card {
@@ -200,31 +238,35 @@ textarea {
   display: block;
   margin-bottom: 6px;
   color: var(--muted);
-  font-size: 0.77rem;
+  font-size: 0.74rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  font-weight: 700;
 }
 
 .stat-card strong {
-  font-size: 0.98rem;
+  font-size: 0.96rem;
+  color: var(--text);
 }
 
 .card,
 .result-card,
 .audit-card {
-  padding: 26px;
-  margin-bottom: 18px;
+  padding: 28px;
 }
 
 .card h2,
 .result-card h2,
 .audit-card h2 {
-  margin: 0 0 20px;
-  font-size: 1.5rem;
+  margin: 0 0 18px;
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #0f172a;
 }
 
 /* =====================================================
-   FORM
+   FORM CONTROLS & TOUCH TARGETS
 ===================================================== */
 
 label {
@@ -232,6 +274,7 @@ label {
   margin-bottom: 8px;
   font-weight: 700;
   color: var(--text);
+  font-size: 0.92rem;
 }
 
 .required {
@@ -241,24 +284,27 @@ label {
 textarea,
 input {
   width: 100%;
-  border: 1px solid #cfdae7;
+  border: 1.5px solid #d4deec;
   border-radius: 12px;
-  padding: 13px 14px;
+  padding: 13px 16px;
   outline: none;
   background: white;
   color: var(--text);
-  transition: 0.2s ease;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  min-height: 46px;
 }
 
 textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 110px;
 }
 
 textarea:focus,
 input:focus {
   border-color: var(--green-2);
-  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.08);
+  box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.12);
 }
 
 .input-row {
@@ -271,37 +317,61 @@ input:focus {
 .ask-button {
   width: 100%;
   margin-top: 22px;
-  padding: 14px 18px;
+  padding: 15px 22px;
+  min-height: 48px;
   border: 0;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--green-2), #199a48);
+  background: linear-gradient(135deg, var(--green-2), #15803d);
   color: white;
   font-weight: 800;
+  font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.2s ease;
-  box-shadow: 0 12px 22px rgba(22, 163, 74, 0.22);
+  transition: transform 0.15s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 10px 22px rgba(22, 163, 74, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
-.ask-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 14px 26px rgba(22, 163, 74, 0.28);
+.ask-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(22, 163, 74, 0.3);
+}
+
+.ask-button:active:not(:disabled) {
+  transform: translateY(0);
 }
 
 .ask-button:disabled {
   background: #9ca9b5;
   box-shadow: none;
   cursor: not-allowed;
+  opacity: 0.8;
 }
 
 /* =====================================================
-   ALERTS
+   ALERTS & STATUS PILLS
 ===================================================== */
 
 .alert {
   border-radius: 12px;
-  padding: 14px 16px;
-  margin-bottom: 14px;
-  font-weight: 700;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.alert-title {
+  font-weight: 800;
+  font-size: 0.98rem;
+  margin-bottom: 3px;
+}
+
+.alert-desc {
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.9;
 }
 
 .success {
@@ -313,42 +383,335 @@ input:focus {
 .warning {
   background: var(--amber-1);
   border: 1px solid #eed191;
-  color: var(--amber-2);
+  color: #92400e;
 }
 
 .error,
 .blocked {
   background: var(--red-1);
   border: 1px solid #f0bfd1;
-  color: var(--red-2);
+  color: #991b1b;
 }
 
-/* =====================================================
-   RESPONSE
-===================================================== */
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
 
-.response {
-  padding: 18px 16px;
-  background: var(--panel-alt);
-  border-radius: 12px;
-  line-height: 1.7;
-  white-space: pre-wrap;
+.result-header h2 {
+  margin: 0;
 }
 
 .status-pill {
   display: inline-flex;
   align-items: center;
-  padding: 6px 10px;
+  gap: 6px;
+  padding: 6px 14px;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 0.78rem;
   font-weight: 800;
-  margin-bottom: 14px;
+  letter-spacing: 0.04em;
   background: #edf1f6;
-  color: #3d4a60;
+  color: #334155;
+  border: 1px solid #dbe2ea;
+  text-transform: uppercase;
+}
+
+.status-pill-approved {
+  background: #dcfce7;
+  color: #15803d;
+  border-color: #bbf7d0;
+}
+
+.status-pill-corrected {
+  background: #fef3c7;
+  color: #b45309;
+  border-color: #fde68a;
+}
+
+.status-pill-error,
+.status-pill-blocked {
+  background: #fee2e2;
+  color: #b91c1c;
+  border-color: #fecaca;
 }
 
 /* =====================================================
-   AUDIT INFORMATION
+   RESPONSE TEXT & AUDIT CALLOUTS
+===================================================== */
+
+.response {
+  padding: 18px 20px;
+  background: var(--panel-alt);
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #1e293b;
+  font-size: 0.96rem;
+  margin-bottom: 18px;
+}
+
+.audit-callout {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  font-size: 0.88rem;
+}
+
+.audit-corrections {
+  color: #065f46;
+  margin-bottom: 8px;
+}
+
+.audit-errors {
+  color: #991b1b;
+}
+
+.audit-callout ul {
+  margin: 6px 0 0;
+  padding-left: 20px;
+}
+
+.audit-callout li {
+  margin-bottom: 4px;
+}
+
+/* =====================================================
+   STRUCTURED PRODUCT PREVIEW CARD (SAFECART VERIFIED)
+===================================================== */
+
+.response-product-card {
+  display: flex;
+  gap: 20px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 18px;
+  margin-top: 18px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.response-product-img-wrap {
+  width: 140px;
+  height: 140px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.response-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 6px;
+  transition: transform 0.2s ease;
+}
+
+.product-category-tag {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background: rgba(15, 23, 42, 0.82);
+  color: white;
+  font-size: 0.65rem;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.response-product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.response-product-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.product-pid-badge {
+  background: #e2e8f0;
+  color: #334155;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.product-verified-badge {
+  background: #dcfce7;
+  color: #166534;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.response-product-title {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.response-product-pricing {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.product-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.product-stock-tag {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+.product-stock-tag.in-stock {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.product-stock-tag.out-of-stock {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.response-product-desc {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* =====================================================
+   RESPONSIVE ORDER DETAILS TABLE
+===================================================== */
+
+.response-order-box {
+  margin-top: 18px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.response-order-title {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.table-responsive-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+}
+
+.order-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.order-details-table th,
+.order-details-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.order-details-table th {
+  background: #f1f5f9;
+  font-weight: 700;
+  color: #475569;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.order-details-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.order-id-chip {
+  font-family: monospace;
+  font-weight: 700;
+  background: #e2e8f0;
+  padding: 2px 7px;
+  border-radius: 4px;
+  color: #0f172a;
+}
+
+.badge-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.pill-green {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.pill-red {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.pill-blue {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.pill-gray {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+/* =====================================================
+   AUDIT INFORMATION (DETAILS & JSON)
 ===================================================== */
 
 details {
@@ -358,16 +721,27 @@ details {
 summary {
   cursor: pointer;
   font-weight: 700;
+  color: var(--blue-2);
+  user-select: none;
+  font-size: 0.95rem;
+}
+
+summary:hover {
+  text-decoration: underline;
 }
 
 pre {
   overflow-x: auto;
-  background: #111827;
-  color: #e5e7eb;
-  padding: 16px;
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 18px;
   border-radius: 12px;
   font-size: 13px;
   line-height: 1.5;
+  margin-top: 12px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 /* =====================================================
@@ -377,18 +751,18 @@ pre {
 .sidebar {
   width: 100%;
   height: fit-content;
-  padding: 22px 20px;
+  padding: 26px 22px;
   background: linear-gradient(180deg, #ffffff 0%, #f6faff 100%);
 }
 
 .sidebar-panel-head {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 }
 
 .sidebar-panel-head.compact {
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .mini-label {
@@ -403,24 +777,31 @@ pre {
 .sidebar h2,
 .sidebar h3 {
   margin: 0;
-  font-size: 1.35rem;
+  font-size: 1.3rem;
+  color: #0f172a;
 }
 
 .architecture {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 18px;
+  margin-top: 16px;
 }
 
 .workflow-step {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 12px;
+  padding: 12px 14px;
   border-radius: 12px;
   background: var(--panel-alt);
   border: 1px solid var(--line);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.workflow-step:hover {
+  background: #ffffff;
+  transform: translateX(2px);
 }
 
 .step-index {
@@ -433,69 +814,227 @@ pre {
   color: var(--blue-2);
   font-size: 0.8rem;
   font-weight: 800;
+  flex-shrink: 0;
 }
 
 .step-label {
   color: var(--text);
   font-weight: 600;
+  font-size: 0.9rem;
 }
 
 .sidebar hr {
   border: 0;
   border-top: 1px solid var(--line);
-  margin: 24px 0 20px;
+  margin: 22px 0 18px;
 }
 
 .rule-list {
   margin: 14px 0 0;
-  padding-left: 20px;
+  padding-left: 0;
+  list-style: none;
 }
 
 .rule-list li {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   color: var(--text);
   line-height: 1.5;
+  font-size: 0.88rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 /* =====================================================
-   TABLET
+   RESPONSIVE MEDIA QUERIES
 ===================================================== */
 
-@media (max-width: 900px) {
+/* 1. Large Laptops and Small Desktops (1024px - 1279px) */
+@media (max-width: 1200px) {
+  .header {
+    padding: 20px 24px 16px;
+  }
+
+  .layout {
+    padding: 10px 24px 40px;
+    gap: 22px;
+  }
+
+  .card,
+  .result-card,
+  .audit-card {
+    padding: 24px;
+  }
+}
+
+/* 2. Tablets and Medium Screens (768px - 1023px) */
+@media (max-width: 1024px) {
   .layout {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .sidebar {
     width: 100%;
   }
+
+  .stats-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 600px) {
+/* 3. Phablets and Landscape Phones (601px - 767px) */
+@media (max-width: 768px) {
   .header {
-    flex-direction: column;
-    align-items: flex-start;
     padding: 18px 20px 14px;
   }
 
   .layout {
-    padding-left: 18px;
-    padding-right: 18px;
+    padding: 8px 18px 36px;
   }
 
-  .stats-row,
+  .stats-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
   .input-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
   }
 
   .card,
   .result-card,
   .audit-card,
-  .info-box {
-    padding: 18px;
+  .info-box,
+  .sidebar {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .response-product-card {
+    padding: 14px;
+    gap: 14px;
+  }
+
+  .response-product-img-wrap {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* 4. Mobile Phones Portrait (401px - 600px) */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 16px 12px;
+    gap: 12px;
+  }
+
+  .brand {
+    gap: 12px;
+  }
+
+  .logo {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+
+  .topbar-actions {
+    align-self: flex-start;
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+
+  .layout {
+    padding: 6px 14px 28px;
+    gap: 18px;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .input-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card,
+  .result-card,
+  .audit-card,
+  .info-box,
+  .sidebar {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .ask-button {
+    min-height: 48px;
+    padding: 14px 16px;
+    font-size: 0.98rem;
+  }
+
+  .response-product-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .response-product-img-wrap {
+    width: 100%;
+    max-width: 200px;
+    height: 180px;
+  }
+
+  .response-product-meta,
+  .response-product-pricing {
+    justify-content: center;
+  }
+
+  .result-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .status-pill {
+    align-self: flex-start;
+  }
+}
+
+/* 5. Extra Small Mobile Phones (<= 400px) */
+@media (max-width: 400px) {
+  .header {
+    padding: 14px 12px 10px;
+  }
+
+  .header h1 {
+    font-size: 1.45rem;
+  }
+
+  .layout {
+    padding: 4px 10px 24px;
+  }
+
+  .card,
+  .result-card,
+  .audit-card,
+  .info-box,
+  .sidebar {
+    padding: 14px 12px;
+    border-radius: 12px;
+  }
+
+  .response-product-img-wrap {
+    height: 150px;
+  }
+
+  .order-details-table th,
+  .order-details-table td {
+    padding: 8px 10px;
+    font-size: 0.82rem;
   }
 }

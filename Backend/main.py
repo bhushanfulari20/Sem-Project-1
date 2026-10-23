@@ -60,6 +60,7 @@ app = FastAPI(
 origins_env = os.getenv("ALLOWED_ORIGINS", "*").strip()
 if origins_env == "*":
     allowed_origins = ["*"]
+    allow_origin_regex = None
 else:
     allowed_origins = [
         "http://localhost:5173",
@@ -73,10 +74,13 @@ else:
     ]
     if origins_env:
         allowed_origins.extend([o.strip() for o in origins_env.split(",") if o.strip()])
+    # Automatically permit Vercel, Netlify, and Render domain variants to prevent deployment CORS blockers
+    allow_origin_regex = r"^https?://.*(\.vercel\.app|\.netlify\.app|\.onrender\.com|localhost|127\.0\.0\.1)(:\d+)?$"
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
+    allow_origin_regex=allow_origin_regex if origins_env != "*" else None,
     allow_credentials=False if "*" in allowed_origins else True,
     allow_methods=["*"],
     allow_headers=["*"],

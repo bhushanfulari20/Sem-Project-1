@@ -9,11 +9,13 @@ import AuditInfo from "./components/AuditInfo";
 import Sidebar from "./components/Sidebar";
 
 
-// ======================================================
-// FASTAPI BACKEND
-// ======================================================
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "/api";
+// FASTAPI BACKEND CONFIGURATION
+// Tolerates bare domains (e.g. https://api.example.com) or prefixed (https://api.example.com/api) or relative (/api)
+const rawBaseUrl = import.meta.env.VITE_API_BASE_URL || "/api";
+const cleanBaseUrl = rawBaseUrl.replace(/\/+$/, "");
+const API_CHAT_ENDPOINT = cleanBaseUrl.endsWith("/api")
+  ? `${cleanBaseUrl}/chat`
+  : `${cleanBaseUrl}/api/chat`;
 
 
 function App() {
@@ -64,7 +66,7 @@ function App() {
       // ------------------------------------------------
 
       const response = await fetch(
-        `${API_BASE_URL}/chat`,
+        API_CHAT_ENDPOINT,
         {
           method: "POST",
 
