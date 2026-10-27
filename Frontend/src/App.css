@@ -615,6 +615,7 @@ input:focus {
   line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -846,10 +847,30 @@ pre {
 }
 
 /* =====================================================
-   RESPONSIVE MEDIA QUERIES
+   SAFECART ALL-DEVICE RESPONSIVE MEDIA QUERIES
+   Adapts flawlessly from 4K/Ultrawide down to compact mobile phones
 ===================================================== */
 
-/* 1. Large Laptops and Small Desktops (1024px - 1279px) */
+/* 1. Ultrawide Monitors & 4K Displays (>= 1441px) */
+@media (min-width: 1441px) {
+  .header,
+  .layout {
+    max-width: 1440px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr 380px;
+    gap: 32px;
+  }
+
+  .card,
+  .result-card,
+  .audit-card {
+    padding: 34px;
+  }
+}
+
+/* 2. Large Laptops & Standard Desktops (1025px - 1440px) */
 @media (max-width: 1200px) {
   .header {
     padding: 20px 24px 16px;
@@ -867,7 +888,7 @@ pre {
   }
 }
 
-/* 2. Tablets and Medium Screens (768px - 1023px) */
+/* 3. Tablets & Medium Screens (769px - 1024px) */
 @media (max-width: 1024px) {
   .layout {
     grid-template-columns: 1fr;
@@ -883,7 +904,7 @@ pre {
   }
 }
 
-/* 3. Phablets and Landscape Phones (601px - 767px) */
+/* 4. Phablets & Landscape Phones (577px - 768px) */
 @media (max-width: 768px) {
   .header {
     padding: 18px 20px 14px;
@@ -923,8 +944,8 @@ pre {
   }
 }
 
-/* 4. Mobile Phones Portrait (401px - 600px) */
-@media (max-width: 600px) {
+/* 5. Mobile Phones Portrait (401px - 576px) */
+@media (max-width: 576px) {
   .header {
     flex-direction: column;
     align-items: flex-start;
@@ -934,18 +955,28 @@ pre {
 
   .brand {
     gap: 12px;
+    width: 100%;
   }
 
   .logo {
-    width: 48px;
-    height: 48px;
-    font-size: 24px;
+    width: 46px;
+    height: 46px;
+    font-size: 22px;
+  }
+
+  .header h1 {
+    font-size: clamp(1.3rem, 5vw, 1.7rem);
+  }
+
+  .header p {
+    font-size: 0.85rem;
   }
 
   .topbar-actions {
     align-self: flex-start;
     font-size: 0.8rem;
     padding: 6px 12px;
+    gap: 6px;
   }
 
   .layout {
@@ -954,13 +985,13 @@ pre {
   }
 
   .stats-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 
   .input-row {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 12px;
   }
 
   .card,
@@ -976,6 +1007,15 @@ pre {
     min-height: 48px;
     padding: 14px 16px;
     font-size: 0.98rem;
+  }
+
+  .prompt-chips {
+    gap: 8px;
+  }
+
+  .prompt-chip {
+    padding: 7px 12px;
+    font-size: 0.82rem;
   }
 
   .response-product-card {
@@ -995,28 +1035,72 @@ pre {
     justify-content: center;
   }
 
+  .product-action-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .product-action-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 42px;
+  }
+
   .result-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 10px;
   }
 
   .status-pill {
     align-self: flex-start;
   }
+
+  .order-details-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+
+  .order-details-table {
+    min-width: 280px;
+    width: 100%;
+  }
 }
 
-/* 5. Extra Small Mobile Phones (<= 400px) */
+/* 6. Extra Small & Foldable Mobile Phones (<= 400px down to 320px) */
 @media (max-width: 400px) {
   .header {
-    padding: 14px 12px 10px;
+    padding: 12px 10px 8px;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
   }
 
   .header h1 {
-    font-size: 1.45rem;
+    font-size: 1.25rem;
   }
 
   .layout {
-    padding: 4px 10px 24px;
+    padding: 4px 8px 24px;
+    gap: 14px;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .stat-card {
+    padding: 12px 14px;
   }
 
   .card,
@@ -1028,13 +1112,90 @@ pre {
     border-radius: 12px;
   }
 
+  .ask-button {
+    font-size: 0.92rem;
+    padding: 12px 14px;
+  }
+
   .response-product-img-wrap {
     height: 150px;
+    max-width: 160px;
   }
 
   .order-details-table th,
   .order-details-table td {
-    padding: 8px 10px;
-    font-size: 0.82rem;
+    padding: 6px 8px;
+    font-size: 0.78rem;
+  }
+}
+
+/* 7. Mobile Landscape / Short Viewports */
+@media (orientation: landscape) and (max-height: 520px) {
+  .header {
+    padding: 10px 18px 8px;
+    gap: 8px;
+  }
+
+  .logo {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+  }
+
+  .header h1 {
+    font-size: 1.3rem;
+  }
+
+  .layout {
+    padding: 6px 18px 24px;
+    gap: 14px;
+  }
+
+  .card textarea {
+    min-height: 60px;
+  }
+}
+
+/* 8. Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 9. Print Optimization */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .header,
+  .topbar-actions,
+  .sidebar,
+  .quick-prompts-card,
+  .ask-button,
+  .product-action-buttons,
+  .mode-switch {
+    display: none !important;
+  }
+
+  .layout {
+    grid-template-columns: 1fr !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .card,
+  .result-card,
+  .audit-card {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    page-break-inside: avoid;
   }
 }

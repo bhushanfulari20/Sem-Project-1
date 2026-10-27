@@ -5,6 +5,12 @@
     font-family: Arial, sans-serif;
 }
 
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .navbar {
     height: 60px;
     background-color: #0f1111;
@@ -657,6 +663,7 @@ footer {
     cursor: pointer;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     height: 2.7em;
@@ -2074,25 +2081,6 @@ footer {
     background: #f7ca00;
 }
 
-@media (max-width: 600px) {
-    .detail-modal-body {
-        grid-template-columns: 1fr;
-    }
-
-    .cart-drawer {
-        width: 100vw;
-    }
-
-    .chat-window {
-        width: 100vw;
-        height: 100vh;
-        max-height: 100vh;
-        border-radius: 0;
-        bottom: 0;
-        right: 0;
-    }
-}
-
 /* ==========================================================================
    LIVE STORE HEADER & STATUS BADGES
    ========================================================================== */
@@ -2331,10 +2319,48 @@ footer {
 }
 
 /* ==========================================================================
-   SAFECART COMPREHENSIVE RESPONSIVE DESIGN MEDIA QUERIES
+   SAFECART ALL-DEVICE RESPONSIVE MEDIA QUERIES
+   Adapts flawlessly from 4K/Ultrawide monitors down to compact mobile phones
    ========================================================================== */
 
-/* 1. Large Laptops and Small Desktops (1024px - 1279px) */
+/* 1. Ultrawide Monitors & 4K Displays (>= 1441px) */
+@media (min-width: 1441px) {
+    .navbar {
+        padding: 0 40px;
+    }
+    .panel {
+        padding: 0 40px;
+    }
+    .shop-section {
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+    .catalog-section {
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 22px;
+    }
+    .foot-panel2 {
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+}
+
+/* 2. Standard Laptops & Desktops (1025px - 1440px) */
+@media (max-width: 1440px) and (min-width: 1025px) {
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 18px;
+    }
+    .box {
+        width: 23%;
+    }
+}
+
+/* 3. Small Laptops & Large Tablets (992px - 1200px) */
 @media (max-width: 1200px) {
     .box {
         width: 31%;
@@ -2352,13 +2378,16 @@ footer {
     }
 }
 
-/* 2. Tablets and Medium Devices (769px - 1023px) */
+/* 4. Tablets & Medium Screens (769px - 1024px) */
 @media (max-width: 1024px) {
     .nav-address {
         display: none;
     }
+    .nav-search {
+        max-width: 550px;
+    }
     .box {
-        width: 47%;
+        width: 48%;
     }
     .hero-section {
         height: 310px;
@@ -2390,7 +2419,7 @@ footer {
     }
 }
 
-/* 3. Small Tablets and Large Phones (577px - 768px) */
+/* 5. Phablets & Small Tablets (577px - 768px) */
 @media (max-width: 768px) {
     .navbar {
         height: auto;
@@ -2423,7 +2452,7 @@ footer {
         font-size: 0.8rem;
     }
     .panel-ops {
-        gap: 10px;
+        gap: 12px;
         margin-left: 10px;
     }
     .box {
@@ -2452,6 +2481,7 @@ footer {
         overflow-x: auto;
         white-space: nowrap;
         padding-bottom: 4px;
+        -webkit-overflow-scrolling: touch;
     }
     .catalog-sort-group {
         width: 100%;
@@ -2470,7 +2500,7 @@ footer {
         max-width: 420px;
         right: 12px;
         bottom: 80px;
-        height: calc(100vh - 120px);
+        height: calc(100dvh - 120px);
         max-height: 580px;
     }
     .tracking-steps {
@@ -2499,15 +2529,39 @@ footer {
     }
 }
 
-/* 4. Mobile Phones Portrait (401px - 576px) */
+/* 6. Standard Mobile Phones (401px - 576px) */
 @media (max-width: 576px) {
     .navbar {
         padding: 6px 10px;
+    }
+    .nav-logo {
+        height: 38px;
+        width: 78px;
+    }
+    .logo {
+        height: 36px;
+        width: 78px;
+    }
+    .nav-prime-badge {
+        display: none;
+    }
+    .nav-signin {
+        font-size: 0.8rem;
+    }
+    .nav-cart {
+        font-size: 0.8rem;
+    }
+    .nav-cart i {
+        font-size: 24px;
     }
     .box {
         width: 100%;
         min-height: auto;
         margin-top: 14px;
+        padding: 16px;
+    }
+    .box-img {
+        height: 220px;
     }
     .hero-section {
         height: 220px;
@@ -2528,23 +2582,40 @@ footer {
         height: 130px;
     }
     .card-title {
-        font-size: 0.85rem;
+        font-size: 0.84rem;
         height: 2.5em;
+        line-height: 1.25;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
     }
     .card-price {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
+    }
+    .card-stock {
+        font-size: 0.72rem;
     }
     .btn-add-cart,
     .btn-ask-safecart {
-        padding: 6px 10px;
+        padding: 8px 10px;
         font-size: 0.78rem;
-        min-height: 40px;
+        min-height: 42px;
+    }
+    .detail-modal-body {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        max-height: 80dvh;
+        overflow-y: auto;
     }
     .modal-content {
         width: 95vw;
         max-width: 95vw;
         padding: 14px;
-        border-radius: 10px;
+        border-radius: 12px;
+        max-height: 90dvh;
+        overflow-y: auto;
     }
     .cart-drawer {
         width: 100vw;
@@ -2552,21 +2623,65 @@ footer {
     }
     .chat-window {
         width: 100vw;
-        height: 100vh;
-        max-height: 100vh;
+        height: 100dvh;
+        max-height: 100dvh;
         right: 0;
         bottom: 0;
         border-radius: 0;
         z-index: 10000;
     }
+    .chat-header {
+        border-radius: 0;
+        padding: 12px 14px;
+    }
     .foot-panel2 {
         grid-template-columns: 1fr;
         padding: 24px 18px;
     }
+    .foot-panel4 {
+        padding: 15px 12px;
+        font-size: 0.72rem;
+    }
 }
 
-/* 5. Extra Small Devices (<= 400px) */
+/* 7. Extra Small & Foldable Devices (<= 400px down to 320px) */
 @media (max-width: 400px) {
+    .navbar {
+        padding: 5px 8px;
+        gap: 4px;
+    }
+    .nav-logo {
+        width: 68px;
+        height: 34px;
+    }
+    .logo {
+        width: 68px;
+        height: 32px;
+    }
+    .nav-search {
+        height: 35px;
+    }
+    .search-select {
+        width: 42px;
+        font-size: 0.75rem;
+    }
+    .search-input {
+        font-size: 0.85rem;
+        padding: 0 6px;
+    }
+    .search-icon {
+        width: 36px;
+        font-size: 1rem;
+    }
+    .nav-signin {
+        font-size: 0.75rem;
+    }
+    .nav-cart {
+        font-size: 0.75rem;
+    }
+    .nav-cart i {
+        font-size: 20px;
+    }
     .products-grid {
         grid-template-columns: 1fr;
         gap: 12px;
@@ -2575,6 +2690,90 @@ footer {
         height: 170px;
     }
     .modal-content {
-        padding: 10px;
+        padding: 12px 10px;
+        border-radius: 10px;
+    }
+    .checkout-payment-options {
+        gap: 8px;
+    }
+    .payment-option-card {
+        padding: 8px 10px;
+        font-size: 0.82rem;
+    }
+    .tracking-logistics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 8. Mobile Landscape / Low-Height Devices */
+@media (orientation: landscape) and (max-height: 520px) {
+    .navbar {
+        height: 48px;
+        padding: 4px 12px;
+    }
+    .hero-section {
+        height: 160px;
+    }
+    .hero-msg {
+        margin-bottom: 8px;
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+    .detail-modal-body {
+        max-height: 70dvh;
+        overflow-y: auto;
+    }
+    .modal-content {
+        max-height: 88dvh;
+        overflow-y: auto;
+    }
+    .chat-window {
+        height: 94dvh;
+        max-height: 94dvh;
+        width: 440px;
+        max-width: 95vw;
+        right: 10px;
+        bottom: 10px;
+        border-radius: 12px;
+    }
+}
+
+/* 9. Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* 10. Print Optimization */
+@media print {
+    .navbar,
+    .panel,
+    .safecart-chat-widget,
+    .cart-drawer,
+    .cart-drawer-overlay,
+    .modal-overlay,
+    .footer,
+    footer,
+    .btn-add-cart,
+    .btn-ask-safecart {
+        display: none !important;
+    }
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+    .catalog-section,
+    .shop-section {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
     }
 }
